@@ -31,14 +31,21 @@
   </header>
 
   <main id="main" class="container">
-    <article class="prose">
-      <h1>Contact</h1>
-      <ul class="contact-list">
-        <li><strong>Email:</strong> <a href="mailto:youremail@example.com">youremail@example.com</a></li>
-        <li><strong>GitHub:</strong> <a href="https://github.com/username" target="_blank" rel="noopener">github.com/username</a></li>
-        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/username" target="_blank" rel="noopener">linkedin.com/in/username</a></li>
-      </ul>
-    </article>
+<article class="prose">
+  <h1>Contact</h1>
+  <p>Have a question or want to work together? Fill out the form below, and I'll get back to you as soon as possible.</p>
+  <form action="https://formspree.io/f/your-unique-form-id" method="POST">
+    <label>
+      Your email:
+      <input type="email" name="email">
+    </label>
+    <label>
+      Your message:
+      <textarea name="message"></textarea>
+    </label>
+    <button type="submit">Send</button>
+  </form>
+</article>
   </main>
 
   <footer class="site-footer">

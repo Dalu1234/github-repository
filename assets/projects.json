@@ -1,10 +1,18 @@
 [
   {
-    "title": "My Project",
-    "description": "What it does",
-    "tags": ["Tag1", "Tag2"],
-    "repoUrl": "https://github.com/<user>/<repo>",
-    "liveUrl": "https://<user>.github.io/<repo>",
-    "image": "images/my-project.png"
+    "title": "Interactive Data Visualization",
+    "description": "A web-based tool for visualizing complex datasets using D3.js, featuring real-time filtering and animations.",
+    "tags": ["JavaScript", "D3.js", "Data Viz"],
+    "repoUrl": "https://github.com/your-username/data-viz-tool",
+    "liveUrl": "https://your-username.github.io/data-viz-tool",
+    "image": "assets/images/data-viz-tool.png"
+  },
+  {
+    "title": "Machine Learning API",
+    "description": "A RESTful API built with Python and Flask that serves predictions from a trained machine learning model.",
+    "tags": ["Python", "Flask", "Machine Learning"],
+    "repoUrl": "https://github.com/your-username/ml-api",
+    "liveUrl": null,
+    "image": "assets/images/ml-api.png"
   }
 ]

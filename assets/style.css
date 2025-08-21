@@ -172,3 +172,54 @@ a:hover { text-decoration: underline; }
 .prose { padding: 28px 0 40px; }
 .prose h1 { margin-top: 0; }
 .contact-list { list-style: none; padding: 0; display: grid; gap: 8px; }
+
+/* Animation for project cards */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  /* ... existing .card styles ... */
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0; /* Start hidden */
+}
+
+form {
+  display: grid;
+  gap: 16px;
+}
+form input, form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 1rem;
+}
+form button {
+  /* You can use the existing .btn styles */
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease;
+}
+form button:hover {
+  transform: translateY(-1px);
+  border-color: var(--brand);
+}
