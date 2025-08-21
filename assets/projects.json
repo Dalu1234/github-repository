@@ -1,0 +1,10 @@
+[
+  {
+    "title": "My Project",
+    "description": "What it does",
+    "tags": ["Tag1", "Tag2"],
+    "repoUrl": "https://github.com/<user>/<repo>",
+    "liveUrl": "https://<user>.github.io/<repo>",
+    "image": "images/my-project.png"
+  }
+]
