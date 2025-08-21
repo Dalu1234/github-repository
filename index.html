@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chukwudalu Dumebi-Kachikwu — Portfolio</title>
+  <meta name="description" content="AI • RAG • XAI • Multi-Agent Systems — Portfolio of GitHub projects by Chukwudalu Dumebi-Kachikwu." />
+  <link rel="canonical" href="./index.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Chukwudalu Dumebi-Kachikwu — Portfolio" />
+  <meta property="og:description" content="AI • RAG • XAI • Multi-Agent Systems — Portfolio of GitHub projects." />
+  <!-- Safe tiny transparent image as default OG image (works without external file) -->
+  <meta property="og:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2NkYGBgAAAABQABfYx0VQAAAABJRU5ErkJggg==" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon (tiny inline SVG) -->
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><rect width="64" height="64" rx="12" ry="12" fill="%230b0f17"/><text x="50%" y="55%" font-size="36" text-anchor="middle" fill="%23a3e635" font-family="sans-serif">C</text></svg>' />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script defer src="assets/script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="brand" href="index.html" aria-current="page">
+        <span class="brand-name">Chukwudalu Dumebi-Kachikwu</span>
+        <span class="brand-tagline">AI • RAG • XAI • Multi-Agent Systems</span>
+      </a>
+
+      <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light theme" aria-pressed="false" title="Toggle theme">
+        <span class="toggle-icon" aria-hidden="true">🌓</span><span class="visually-hidden">Toggle theme</span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a class="nav-link" href="index.html" aria-current="page">Home</a></li>
+        <li><a class="nav-link" href="about.html">About</a></li>
+        <li><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+    <section class="intro" aria-labelledby="intro-heading">
+      <h1 id="intro-heading">Projects</h1>
+      <p class="lead">A curated selection of my work across retrieval-augmented generation, explainability, and agentic systems.</p>
+    </section>
+
+    <section class="controls" aria-label="Search and filters">
+      <div class="search-wrap">
+        <label for="search" class="search-label">Search projects</label>
+        <input id="search" class="search-input" type="search" placeholder="Search by title or description…" autocomplete="off" />
+      </div>
+
+      <div id="filters" class="filters" role="toolbar" aria-label="Filter by tag">
+        <!-- Tag chips inserted by JS -->
+      </div>
+    </section>
+
+    <section aria-live="polite" aria-busy="true">
+      <div id="projectGrid" class="grid">
+        <!-- Cards inserted by JS -->
+      </div>
+      <p id="emptyState" class="empty" hidden>No projects match your search/filter.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> Chukwudalu Dumebi-Kachikwu</p>
+      <nav aria-label="Social">
+        <ul class="social">
+          <li><a href="https://github.com/username" target="_blank" rel="me noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/username" target="_blank" rel="me noopener">LinkedIn</a></li>
+          <li><a href="mailto:youremail@example.com" rel="me">Email</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Accessible Modal -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" role="document">
+      <header class="modal-header">
+        <h2 id="modalTitle">Project Details</h2>
+        <button class="modal-close" aria-label="Close" data-close-modal>&times;</button>
+      </header>
+      <div id="modalBody" class="modal-body"></div>
+      <footer class="modal-footer">
+        <button class="btn" data-close-modal>Close</button>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>
