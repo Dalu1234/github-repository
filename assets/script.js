@@ -2,7 +2,7 @@
 window.CONFIG = {
   // Set this to enable automatic stars/forks fetching for repos
   // that match https://github.com/<githubUsername>/<repo>
-  githubUsername: "", // e.g., "username" (leave blank to disable)
+  githubUsername: "Dalu1234", // e.g., "dalu1234"
   enableRepoStats: true
 };
 /* ---------------------------------------- */
@@ -139,7 +139,7 @@ window.CONFIG = {
     projects.forEach((p, i) => {
       const card = document.createElement("article");
       card.className = "card";
-
+      card.style.animationDelay = `${i * 100}ms`;
       const img = document.createElement("img");
       img.className = "thumb";
       img.loading = "lazy";
