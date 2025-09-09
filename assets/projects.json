@@ -32,7 +32,7 @@
 "tags": ["JavaScript", "Chrome Extension", "AI", "API"],
 "repoUrl": "https://github.com/dalu1234/prof-p",
  "liveUrl": null,
- "image": "dalu1234/prof-p/Prof-P-cf8b6a888cc87e425f31347bf6e6e88a1ac799fb/icon.png"
+ "image": "assets/images/p.png"
  },
 
  {
@@ -41,7 +41,7 @@
     "tags": ["Java", "Swing", "GUI"],
     "repoUrl": "https://github.com/dalu1234/foodconnect",
     "liveUrl": null,
-    "image": "assets/images/foodconnect.png"
+    "image": "assets/images/food.png"
 },
 
 {
@@ -50,7 +50,7 @@
   "tags": ["Godot", "GDScript", "Game", "Puzzle", "Math"],
   "repoUrl": "https://github.com/dalu1234/rubix",
   "liveUrl": null,
-  "image": "assets/images/rubix-game.png"
+  "image": "assets/images/rubix.png"
 }
 
 ]
