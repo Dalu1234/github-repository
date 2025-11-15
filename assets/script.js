@@ -20,7 +20,7 @@ window.CONFIG = {
   /* ---------- Theme (default dark + respects prefers-color-scheme) ---------- */
   const storedTheme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const startTheme = storedTheme || (prefersDark ? "dark" : "dark"); // default to dark even if light system
+  const startTheme = storedTheme || (prefersDark ? "dark" : "light");
   html.setAttribute("data-theme", startTheme);
   if (themeToggleBtn) themeToggleBtn.setAttribute("aria-pressed", startTheme === "dark" ? "true" : "false");
 
