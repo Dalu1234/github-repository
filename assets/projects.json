@@ -1,12 +1,39 @@
 [
   {
+  "title": "RikRok – Tinder for Research Papers",
+  "description": "An AI-powered research discovery app that helps users find, swipe, and save AI papers from arXiv. Built with React Native and integrated with Anthropic's Claude for paper summarization and recommendation. Designed to make exploring new research engaging, intuitive, and conversational.",
+  "tags": ["React Native", "Anthropic", "Claude", "AI", "arXiv", "Mobile", "JavaScript"],
+  "repoUrl": "https://github.com/dalu1234/rikrok",
+  "liveUrl": null,
+  "image": "assets/images/1110.gif",
+  "featured": true
+},
+{
+  "title": "Quest – AI-Generated Daily Campus Challenges",
+  "description": "Quest creates short, personalized daily challenges that help students explore campus, build habits, and boost well-being. Powered by AI-generated micro-missions, the app turns each day into a small adventure with intentional, growth-oriented actions.",
+  "tags": ["AI", "Campus Life", "Well-being", "React Native", "Student Engagement", "Daily Challenges"],
+  "repoUrl": null,
+  "liveUrl": null,
+  "image": "assets/images/buest.gif",
+  "featured": true
+},
+{
+  "title": "Classroom TA – Multi-Agent Teaching Assistant",
+  "description": "An AI-powered multi-agent teaching assistant designed to support overstaffed classrooms. It dynamically coordinates lesson planning, grading, and student Q&A through a team of specialized AI agents that collaborate to reduce teacher workload and improve learning engagement.",
+  "tags": ["AI Agents", "Education", "Multi-Agent Systems", "Teacher Assistant", "LLM", "Automation"],
+  "repoUrl": null,
+  "liveUrl": null,
+  "image": "assets/images/ba.gif",
+  "featured": true
+}
+
+,
+  {
   "title": "Conversational RAG System",
   "description": "A full-stack conversational AI application using a Retrieval-Augmented Generation (RAG) architecture. The backend is built with Python, Flask, and LangChain, and the frontend is a responsive chat interface using HTML, and Tailwind CSS. It includes a feedback mechanism integrated with LangSmith for monitoring and improvement.",
   "tags": ["Python", "Flask", "LangChain", "RAG", "JavaScript", "Tailwind CSS", "AI"],
   "repoUrl": "https://github.com/dalu1234/ryo",
-  "liveUrl": "http://ec2-18-223-206-165.us-east-2.compute.amazonaws.com/",
-  "image": "assets/images/rag-terminal.png",
-  "featured": true
+  "image": "assets/images/rag-terminal.png"
 },
 
   {
@@ -15,8 +42,7 @@
   "tags": ["Python", "Red Teaming", "LLM", "AI Security", "DeepSeek"],
   "repoUrl": "https://github.com/jal355/t4g_redteam_deepseek",
   "liveUrl": null,
-  "image":  "assets/images/redteamDeepSeek.png",
-  "featured": true
+  "image":  "assets/images/redteamDeepSeek.png"
 },
   
 {
@@ -25,8 +51,7 @@
  "tags": ["Python", "Machine Learning", "Natural Language Processing", "Hate Speech Detection"],
  "repoUrl": "https://github.com/dalu1234/t4g-mini-project-1---perspectiveapi-hate-speech-classification",
  "liveUrl": null,
- "image": "assets/images/hate-speech-classification.png",
- "featured": true
+ "image": "assets/images/hate-speech-classification.png"
 },
   
 {

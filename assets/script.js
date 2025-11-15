@@ -201,32 +201,46 @@ window.CONFIG = {
         const tags = document.createElement("div");
         tags.className = "tag-row";
         const maxVisible = 2; // Show only 2 tags initially
-        p.tags.slice(0, maxVisible).forEach(t => {
-          const tag = document.createElement("span");
-          tag.className = "tag";
-          tag.textContent = t;
-          tags.appendChild(tag);
-        });
+        let isExpanded = false;
         
-        // Add "+X more" pill if there are additional tags
-        if (p.tags.length > maxVisible) {
-          const moreTag = document.createElement("span");
-          moreTag.className = "tag more-tags";
-          moreTag.textContent = `+${p.tags.length - maxVisible} more`;
-          moreTag.title = p.tags.slice(maxVisible).join(", ");
-          moreTag.addEventListener("click", (e) => {
-            e.stopPropagation();
-            // Show all tags on click
-            tags.innerHTML = "";
-            p.tags.forEach(t => {
-              const tag = document.createElement("span");
-              tag.className = "tag";
-              tag.textContent = t;
-              tags.appendChild(tag);
-            });
+        const renderTags = (showAll) => {
+          tags.innerHTML = "";
+          const tagsToShow = showAll ? p.tags : p.tags.slice(0, maxVisible);
+          
+          tagsToShow.forEach(t => {
+            const tag = document.createElement("span");
+            tag.className = "tag";
+            tag.textContent = t;
+            tags.appendChild(tag);
           });
-          tags.appendChild(moreTag);
-        }
+          
+          // Add "+X more" or "Show less" button
+          if (p.tags.length > maxVisible) {
+            const toggleTag = document.createElement("span");
+            toggleTag.className = "tag more-tags";
+            
+            if (showAll) {
+              toggleTag.textContent = "Show less";
+              toggleTag.addEventListener("click", (e) => {
+                e.stopPropagation();
+                isExpanded = false;
+                renderTags(false);
+              });
+            } else {
+              toggleTag.textContent = `+${p.tags.length - maxVisible} more`;
+              toggleTag.title = p.tags.slice(maxVisible).join(", ");
+              toggleTag.addEventListener("click", (e) => {
+                e.stopPropagation();
+                isExpanded = true;
+                renderTags(true);
+              });
+            }
+            
+            tags.appendChild(toggleTag);
+          }
+        };
+        
+        renderTags(isExpanded);
         body.appendChild(tags);
       }
 
