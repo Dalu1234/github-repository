@@ -28,16 +28,6 @@
  "image": "assets/images/hate-speech-classification.png",
  "featured": true
 },
-
-  {
-    "title": "Conversational RAG System",
-    "description": "A full-stack conversational AI application using a Retrieval-Augmented Generation (RAG) architecture. The backend is built with Python, Flask, and LangChain, and the frontend is a responsive chat interface using HTML, and Tailwind CSS. It includes a feedback mechanism integrated with LangSmith for monitoring and improvement.",
-    "tags": ["Python", "Flask", "LangChain", "RAG", "JavaScript", "Tailwind CSS", "AI"],
-    "repoUrl": "https://github.com/dalu1234/ryo",
-    "liveUrl": "http://ec2-18-223-206-165.us-east-2.compute.amazonaws.com/",
-    "image": "assets/images/rag-terminal.png",
-    "featured": true
-  },
   
 {
 "title": "Privacy Analyzer (Prof P)",

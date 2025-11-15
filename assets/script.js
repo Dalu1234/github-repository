@@ -111,25 +111,61 @@ window.CONFIG = {
     filtersEl.innerHTML = "";
     const tags = Object.keys(counts).sort((a, b) => (a === "All" ? -1 : b === "All" ? 1 : a.localeCompare(b)));
 
-    tags.forEach(tag => {
-      const btn = document.createElement("button");
-      btn.className = "chip";
-      btn.type = "button";
-      btn.setAttribute("role", "button");
-      btn.setAttribute("aria-pressed", tag === filteredTag ? "true" : "false");
-      btn.textContent = tag;
-      const span = document.createElement("span");
-      span.className = "count";
-      span.textContent = counts[tag];
-      btn.appendChild(span);
-      btn.addEventListener("click", () => {
-        filteredTag = tag;
-        [...filtersEl.children].forEach(el => el.setAttribute("aria-pressed", "false"));
-        btn.setAttribute("aria-pressed", "true");
-        updateList();
+    const maxVisibleFilters = 6; // Show only 6 filter chips initially
+    let isExpanded = false;
+
+    const renderChips = (tagsToShow, expanded) => {
+      filtersEl.innerHTML = "";
+      tagsToShow.forEach(tag => {
+        const btn = document.createElement("button");
+        btn.className = "chip";
+        btn.type = "button";
+        btn.setAttribute("role", "button");
+        btn.setAttribute("aria-pressed", tag === filteredTag ? "true" : "false");
+        btn.textContent = tag;
+        const span = document.createElement("span");
+        span.className = "count";
+        span.textContent = counts[tag];
+        btn.appendChild(span);
+        btn.addEventListener("click", () => {
+          filteredTag = tag;
+          [...filtersEl.children].forEach(el => {
+            if (el.classList.contains('chip')) el.setAttribute("aria-pressed", "false");
+          });
+          btn.setAttribute("aria-pressed", "true");
+          updateList();
+        });
+        filtersEl.appendChild(btn);
       });
-      filtersEl.appendChild(btn);
-    });
+
+      // Add "+X more" button if collapsed and there are hidden filters
+      if (!expanded && tags.length > maxVisibleFilters) {
+        const moreBtn = document.createElement("button");
+        moreBtn.className = "chip more-filters";
+        moreBtn.type = "button";
+        moreBtn.textContent = `+${tags.length - maxVisibleFilters} more`;
+        moreBtn.addEventListener("click", () => {
+          isExpanded = true;
+          renderChips(tags, true);
+        });
+        filtersEl.appendChild(moreBtn);
+      }
+
+      // Add "Show less" button if expanded
+      if (expanded && tags.length > maxVisibleFilters) {
+        const lessBtn = document.createElement("button");
+        lessBtn.className = "chip more-filters";
+        lessBtn.type = "button";
+        lessBtn.textContent = "Show less";
+        lessBtn.addEventListener("click", () => {
+          isExpanded = false;
+          renderChips(tags.slice(0, maxVisibleFilters), false);
+        });
+        filtersEl.appendChild(lessBtn);
+      }
+    };
+
+    renderChips(isExpanded ? tags : tags.slice(0, maxVisibleFilters), isExpanded);
   }
 
   function renderGrid(projects) {
@@ -164,12 +200,33 @@ window.CONFIG = {
       if (Array.isArray(p.tags) && p.tags.length) {
         const tags = document.createElement("div");
         tags.className = "tag-row";
-        p.tags.forEach(t => {
+        const maxVisible = 2; // Show only 2 tags initially
+        p.tags.slice(0, maxVisible).forEach(t => {
           const tag = document.createElement("span");
           tag.className = "tag";
           tag.textContent = t;
           tags.appendChild(tag);
         });
+        
+        // Add "+X more" pill if there are additional tags
+        if (p.tags.length > maxVisible) {
+          const moreTag = document.createElement("span");
+          moreTag.className = "tag more-tags";
+          moreTag.textContent = `+${p.tags.length - maxVisible} more`;
+          moreTag.title = p.tags.slice(maxVisible).join(", ");
+          moreTag.addEventListener("click", (e) => {
+            e.stopPropagation();
+            // Show all tags on click
+            tags.innerHTML = "";
+            p.tags.forEach(t => {
+              const tag = document.createElement("span");
+              tag.className = "tag";
+              tag.textContent = t;
+              tags.appendChild(tag);
+            });
+          });
+          tags.appendChild(moreTag);
+        }
         body.appendChild(tags);
       }
 
@@ -248,4 +305,67 @@ window.CONFIG = {
 
   // Kick off only on pages that include grid; still safe elsewhere
   document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", init) : init();
+
+  /* ---------- Scroll-triggered animations for Experience page ---------- */
+  function initScrollAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    if (timelineItems.length === 0) return; // Not on experience page
+
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target); // Only animate once
+        }
+      });
+    }, observerOptions);
+
+    timelineItems.forEach(item => {
+      observer.observe(item);
+    });
+  }
+
+  /* ---------- Timeline View Toggle ---------- */
+  function initViewToggle() {
+    const viewToggle = document.getElementById('viewToggle');
+    const timelineContainer = document.getElementById('timelineContainer');
+    
+    if (!viewToggle || !timelineContainer) return; // Not on experience page
+
+    // Get stored preference or default to infographic view
+    const storedView = localStorage.getItem('timelineView') || 'infographic';
+    
+    if (storedView === 'card') {
+      timelineContainer.classList.add('card-view');
+      viewToggle.querySelector('.toggle-label').textContent = 'Switch to Infographic View';
+    }
+
+    viewToggle.addEventListener('click', () => {
+      const isCardView = timelineContainer.classList.toggle('card-view');
+      
+      if (isCardView) {
+        viewToggle.querySelector('.toggle-label').textContent = 'Switch to Infographic View';
+        localStorage.setItem('timelineView', 'card');
+      } else {
+        viewToggle.querySelector('.toggle-label').textContent = 'Switch to Card View';
+        localStorage.setItem('timelineView', 'infographic');
+      }
+    });
+  }
+
+  // Initialize scroll animations when DOM is ready
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      initScrollAnimations();
+      initViewToggle();
+    });
+  } else {
+    initScrollAnimations();
+    initViewToggle();
+  }
 })();
