@@ -19,7 +19,7 @@
   --font-title: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-code: 'JetBrains Mono', 'Courier New', monospace;
-}
+} 
 
 html[data-theme="light"] {
   --bg: #FFFFFF;
