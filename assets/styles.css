@@ -163,11 +163,13 @@ a:hover { color: var(--text); }
   color: var(--text);
   font-size: 14px;
   font-family: var(--font-main);
-  transition: border-color 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .search-input:focus { 
   border-color: var(--accent);
   outline: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
 }
 .search-input::placeholder {
   color: var(--text-secondary);
@@ -189,38 +191,89 @@ a:hover { color: var(--text); }
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.chip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+  z-index: 0;
+}
+.chip:hover::before {
+  width: 200px;
+  height: 200px;
 }
 .chip:hover { 
   background: var(--bg-secondary);
   color: var(--text);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .chip[aria-pressed="true"] { 
   background: var(--accent);
-  color: white;
+  color: var(--bg);
   border-color: var(--accent);
+  transform: scale(1.05);
+}
+.chip[aria-pressed="true"]::before {
+  width: 200px;
+  height: 200px;
 }
 .chip .count { 
   opacity: 0.7;
   margin-left: 6px;
   font-size: 12px;
+  position: relative;
+  z-index: 1;
+}
+.chip > * {
+  position: relative;
+  z-index: 1;
 }
 
-/* Project Grid - Clean & Minimal */
+/* Project Grid - Interactive & Fluid */
 .grid {
   display: grid;
-  gap: 16px;
+  gap: 20px;
   padding-bottom: 60px;
 }
 .card {
   border: 1px solid var(--border);
   background: var(--bg);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  transition: border-color 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  position: relative;
 }
-.card:hover { 
-  border-color: var(--text-secondary);
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--accent);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+.card:hover::before {
+  transform: scaleX(1);
 }
 .thumb { 
   display: block;
@@ -228,6 +281,12 @@ a:hover { color: var(--text); }
   height: 200px;
   object-fit: cover;
   border-bottom: 1px solid var(--border);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+  filter: grayscale(0.3);
+}
+.card:hover .thumb {
+  transform: scale(1.05);
+  filter: grayscale(0);
 }
 .card-body { 
   padding: 20px;
@@ -240,12 +299,20 @@ a:hover { color: var(--text); }
   font-size: 18px;
   font-weight: 600;
   line-height: 1.4;
+  transition: color 0.3s ease;
+}
+.card:hover .card-title {
+  color: var(--accent);
 }
 .card-desc { 
   margin: 0;
   color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.6;
+  transition: color 0.3s ease;
+}
+.card:hover .card-desc {
+  color: var(--text);
 }
 .tag-row { 
   display: flex;
@@ -259,6 +326,16 @@ a:hover { color: var(--text); }
   border-radius: 12px;
   color: var(--text-secondary);
   background: var(--bg-secondary);
+  transition: all 0.3s ease;
+}
+.card:hover .tag {
+  border-color: var(--text-secondary);
+  transform: translateY(-2px);
+}
+.tag:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
 }
 .meta { 
   display: flex;
@@ -267,10 +344,19 @@ a:hover { color: var(--text); }
   gap: 12px;
   padding-top: 16px;
   border-top: 1px solid var(--border);
+  transition: border-color 0.3s ease;
+}
+.card:hover .meta {
+  border-top-color: var(--text-secondary);
 }
 .stat { 
   font-size: 13px;
   color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+.card:hover .stat {
+  color: var(--text);
+  transform: translateX(4px);
 }
 .links { 
   display: flex;
@@ -288,12 +374,36 @@ a:hover { color: var(--text); }
   border-radius: 6px;
   font-size: 13px;
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+.btn:hover::before {
+  width: 200px;
+  height: 200px;
 }
 .btn:hover { 
-  background: var(--bg-secondary);
-  border-color: var(--text-secondary);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+  transform: translateY(-2px);
+}
+.btn > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Empty State & Footer */
@@ -339,11 +449,13 @@ a:hover { color: var(--text); }
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: fadeIn 0.3s ease;
 }
 .modal-backdrop { 
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(4px);
 }
 .modal-card {
   position: relative;
@@ -354,6 +466,8 @@ a:hover { color: var(--text); }
   border-radius: 12px;
   max-height: 90vh;
   overflow-y: auto;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 .modal-header { 
   padding: 20px;
@@ -475,13 +589,28 @@ form button:hover {
   opacity: 0.9;
 }
 
-/* Animations - Subtle */
+/* Animations - Smooth & Fluid */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
 .card {
-  animation: fadeIn 0.4s ease-out forwards;
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+.intro h1 {
+  animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.intro p {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s forwards;
+  opacity: 0;
+}
+.controls {
+  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
   opacity: 0;
 }
 
