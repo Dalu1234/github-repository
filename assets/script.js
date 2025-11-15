@@ -138,7 +138,7 @@ window.CONFIG = {
 
     projects.forEach((p, i) => {
       const card = document.createElement("article");
-      card.className = "card";
+      card.className = p.featured ? "card featured" : "card";
       card.style.animationDelay = `${i * 100}ms`;
       const img = document.createElement("img");
       img.className = "thumb";

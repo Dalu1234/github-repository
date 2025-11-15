@@ -1,11 +1,22 @@
 [
   {
+  "title": "Conversational RAG System",
+  "description": "A full-stack conversational AI application using a Retrieval-Augmented Generation (RAG) architecture. The backend is built with Python, Flask, and LangChain, and the frontend is a responsive chat interface using HTML, and Tailwind CSS. It includes a feedback mechanism integrated with LangSmith for monitoring and improvement.",
+  "tags": ["Python", "Flask", "LangChain", "RAG", "JavaScript", "Tailwind CSS", "AI"],
+  "repoUrl": "https://github.com/dalu1234/ryo",
+  "liveUrl": "http://ec2-18-223-206-165.us-east-2.compute.amazonaws.com/",
+  "image": "assets/images/rag-terminal.png",
+  "featured": true
+},
+
+  {
   "title": "Red Team DeepSeek",
   "description": "A Python-based tool for red teaming large language models, specifically DeepSeek. It allows users to engineer prompts with various attack strategies to test the model's vulnerabilities and robustness against malicious inputs. The tool logs the results to create a dataset for analyzing model performance and safety.",
   "tags": ["Python", "Red Teaming", "LLM", "AI Security", "DeepSeek"],
   "repoUrl": "https://github.com/jal355/t4g_redteam_deepseek",
   "liveUrl": null,
-  "image":  "assets/images/redteamDeepSeek.png"
+  "image":  "assets/images/redteamDeepSeek.png",
+  "featured": true
 },
   
 {
@@ -14,7 +25,8 @@
  "tags": ["Python", "Machine Learning", "Natural Language Processing", "Hate Speech Detection"],
  "repoUrl": "https://github.com/dalu1234/t4g-mini-project-1---perspectiveapi-hate-speech-classification",
  "liveUrl": null,
- "image": "assets/images/hate-speech-classification.png"
+ "image": "assets/images/hate-speech-classification.png",
+ "featured": true
 },
 
   {
@@ -23,7 +35,8 @@
     "tags": ["Python", "Flask", "LangChain", "RAG", "JavaScript", "Tailwind CSS", "AI"],
     "repoUrl": "https://github.com/dalu1234/ryo",
     "liveUrl": "http://ec2-18-223-206-165.us-east-2.compute.amazonaws.com/",
-    "image": "assets/images/rag-terminal.png"
+    "image": "assets/images/rag-terminal.png",
+    "featured": true
   },
   
 {
