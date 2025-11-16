@@ -209,7 +209,12 @@ window.CONFIG = {
           
           tagsToShow.forEach(t => {
             const tag = document.createElement("span");
-            tag.className = "tag";
+            // Check if this is an award tag (starts with trophy emoji)
+            if (t.startsWith("🏆")) {
+              tag.className = "tag award-tag";
+            } else {
+              tag.className = "tag";
+            }
             tag.textContent = t;
             tags.appendChild(tag);
           });

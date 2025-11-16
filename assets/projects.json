@@ -2,7 +2,7 @@
   {
   "title": "RikRok – Tinder for Research Papers",
   "description": "An AI-powered research discovery app that helps users find, swipe, and save AI papers from arXiv. Built with React Native and integrated with Anthropic's Claude for paper summarization and recommendation. Designed to make exploring new research engaging, intuitive, and conversational.",
-  "tags": ["React Native", "Anthropic", "Claude", "AI", "arXiv", "Mobile", "JavaScript"],
+  "tags": ["🏆 1st Place · UMD × Anthropic", "React Native", "Anthropic", "Claude", "AI", "arXiv", "Mobile", "JavaScript"],
   "repoUrl": "https://github.com/dalu1234/rikrok",
   "liveUrl": null,
   "image": "assets/images/1110.gif",
@@ -21,7 +21,7 @@
   "title": "Classroom TA – Multi-Agent Teaching Assistant",
   "description": "An AI-powered multi-agent teaching assistant designed to support overstaffed classrooms. It dynamically coordinates lesson planning, grading, and student Q&A through a team of specialized AI agents that collaborate to reduce teacher workload and improve learning engagement.",
   "tags": ["AI Agents", "Education", "Multi-Agent Systems", "Teacher Assistant", "LLM", "Automation"],
-  "repoUrl": null,
+  "repoUrl": "https://github.com/Dalu1234/Teacher-Assistant",
   "liveUrl": null,
   "image": "assets/images/ba.gif",
   "featured": true
