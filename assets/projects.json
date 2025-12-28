@@ -44,7 +44,16 @@
   "liveUrl": null,
   "image":  "assets/images/redteamDeepSeek.png"
 },
-  
+ {
+  "title": "Clippy – AI Screenshot Transcriber",
+  "description": "A Chrome extension that lets you select any region of your screen and instantly transcribe visible text using Claude's vision API. Features region selection with click-and-drag, automatic text extraction, and one-click copy functionality. Built for quickly capturing and converting on-screen text into editable format.",
+  "tags": ["Chrome Extension", "JavaScript", "Anthropic", "Claude", "AI", "Vision API", "OCR", "Productivity"],
+  "repoUrl": "https://github.com/dalu1234/clippy",
+  "liveUrl": null,
+  "image": "assets/images/clippy.png",
+  "featured": false
+},
+ 
 {
  "title": "PerspectiveAPI Hate Speech Classification",
  "description": "A project that implements and evaluates different machine learning models for hate speech classification, using the PerspectiveAPI dataset. The project explores various text feature engineering techniques and compares the performance of models like Logistic Regression and Transformers.",
