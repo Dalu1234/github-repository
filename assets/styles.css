@@ -10,12 +10,12 @@
   --text: #FAFAFA;
   --text-secondary: #A3A3A3;
   --accent: #00E0FF;
-  --accent-glow: rgba(0, 224, 255, 0.3);
+  --accent-glow: rgba(0, 224, 255, 0.15);
   --border: rgba(255, 255, 255, 0.1);
   --border-hover: rgba(0, 224, 255, 0.4);
   --glass-bg: rgba(26, 26, 26, 0.6);
   --shadow-subtle: 0 4px 24px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 20px rgba(0, 224, 255, 0.15);
+  --shadow-glow: 0 0 20px rgba(0, 224, 255, 0.075);
   --font-title: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-code: 'JetBrains Mono', 'Courier New', monospace;
@@ -28,12 +28,12 @@ html[data-theme="light"] {
   --text: #1A1A1A;
   --text-secondary: #737373;
   --accent: #00ACC1;
-  --accent-glow: rgba(0, 172, 193, 0.15);
+  --accent-glow: rgba(0, 172, 193, 0.075);
   --border: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 172, 193, 0.3);
   --glass-bg: #FFFFFF;
   --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 16px rgba(0, 172, 193, 0.08);
+  --shadow-glow: 0 0 16px rgba(0, 172, 193, 0.04);
 }
 
 /* Base & Reset */
@@ -312,15 +312,15 @@ html[data-theme="light"] .card:hover {
   grid-column: span 1;
   border: 1px solid rgba(0, 224, 255, 0.4);
   background: var(--bg-card);
-  box-shadow: 0 0 20px rgba(0, 224, 255, 0.15), 0 12px 32px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0, 224, 255, 0.0375), 0 12px 32px rgba(0, 0, 0, 0.5);
 }
 html[data-theme="light"] .card.featured {
   background: #FFFFFF;
   border: 1px solid rgba(0, 172, 193, 0.25);
-  box-shadow: 0 2px 8px rgba(0, 172, 193, 0.08), 0 1px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 172, 193, 0.02), 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 html[data-theme="light"] .card.featured:hover {
-  box-shadow: 0 8px 24px rgba(0, 172, 193, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 172, 193, 0.06), 0 4px 12px rgba(0, 0, 0, 0.08);
   border-color: rgba(0, 172, 193, 0.35);
 }
 .card.featured .thumb {
@@ -329,7 +329,7 @@ html[data-theme="light"] .card.featured:hover {
 .card.featured .card-title {
   font-size: 20px;
   color: var(--accent);
-  text-shadow: 0 0 20px var(--accent-glow);
+  text-shadow: 0 0 20px rgba(0, 224, 255, 0.075);
 }
 .card.featured .card-desc {
   font-size: 14px;
@@ -348,12 +348,12 @@ html[data-theme="light"] .card.featured:hover {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   z-index: 10;
-  box-shadow: 0 0 10px rgba(0, 224, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 224, 255, 0.075);
 }
 html[data-theme="light"] .card.featured::after {
   background: #00ACC1;
   color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(0, 172, 193, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 172, 193, 0.0625);
 }
 html[data-theme="light"] .card.featured .card-title {
   color: #00838F;
@@ -376,12 +376,12 @@ html[data-theme="light"] .card.featured .card-title {
   font-weight: 500;
   letter-spacing: 0.02em;
   z-index: 10;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .award-badge:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.15);
   border-color: rgba(255, 215, 0, 0.5);
 }
 
@@ -406,7 +406,7 @@ html[data-theme="light"] .card.featured .card-title {
 }
 .card.featured:hover {
   transform: translateY(-16px) rotateX(2deg) scale(1.03);
-  box-shadow: 0 0 30px rgba(0, 224, 255, 0.25), 0 24px 56px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 30px rgba(0, 224, 255, 0.125), 0 24px 56px rgba(0, 0, 0, 0.6);
 }
 .card:hover::before {
   transform: scaleX(1);
@@ -498,7 +498,7 @@ html[data-theme="light"] .tag {
   color: #FFD700;
   font-weight: 600;
   text-transform: none;
-  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.1);
 }
 html[data-theme="light"] .tag.award-tag {
   background: linear-gradient(135deg, rgba(255, 193, 7, 0.12) 0%, rgba(255, 160, 0, 0.08) 100%);
@@ -509,7 +509,7 @@ html[data-theme="light"] .tag.award-tag {
 .tag.award-tag:hover {
   background: linear-gradient(135deg, rgba(255, 215, 0, 0.2) 0%, rgba(255, 165, 0, 0.15) 100%);
   border-color: rgba(255, 215, 0, 0.6);
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
   transform: translateY(-1px);
 }
 html[data-theme="light"] .tag.award-tag:hover {
@@ -599,7 +599,7 @@ html[data-theme="light"] .btn {
 html[data-theme="light"] .btn:hover {
   background: #00ACC1;
   color: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 172, 193, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 172, 193, 0.1);
 }
 
 /* Light-mode image/card overlay fixes */
@@ -806,8 +806,8 @@ html[data-theme="light"] .card-body {
   transform: translateY(-4px);
   box-shadow: 
     0 0 0 1px var(--accent),
-    0 12px 32px rgba(0, 224, 255, 0.15),
-    0 0 48px rgba(163, 230, 53, 0.1);
+    0 12px 32px rgba(0, 224, 255, 0.075),
+    0 0 48px rgba(163, 230, 53, 0.05);
 }
 .about-image img {
   display: block;
@@ -1035,7 +1035,7 @@ form button:hover {
 
 .work-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 30px rgba(0, 224, 255, 0.2), 0 12px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 30px rgba(0, 224, 255, 0.1), 0 12px 32px rgba(0, 0, 0, 0.4);
   transform: translateY(-4px);
 }
 
@@ -1107,7 +1107,7 @@ form button:hover {
   background: rgba(0, 224, 255, 0.15);
   color: var(--accent);
   border: 1px solid var(--accent);
-  box-shadow: 0 0 12px rgba(0, 224, 255, 0.2);
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.1);
 }
 
 /* Main Focus Card */
@@ -1161,19 +1161,19 @@ form button:hover {
 .step.completed .step-marker {
   background: var(--accent);
   border-color: var(--accent);
-  box-shadow: 0 0 12px rgba(0, 224, 255, 0.4);
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.2);
 }
 
 .step.active .step-marker {
   background: var(--bg-card);
   border-color: var(--accent);
-  box-shadow: 0 0 16px rgba(0, 224, 255, 0.5);
+  box-shadow: 0 0 16px rgba(0, 224, 255, 0.25);
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 16px rgba(0, 224, 255, 0.5); }
-  50% { box-shadow: 0 0 24px rgba(0, 224, 255, 0.7); }
+  0%, 100% { box-shadow: 0 0 16px rgba(0, 224, 255, 0.25); }
+  50% { box-shadow: 0 0 24px rgba(0, 224, 255, 0.35); }
 }
 
 .step-label {
@@ -1213,7 +1213,7 @@ form button:hover {
   background: var(--accent);
   color: var(--bg);
   border-color: var(--accent);
-  box-shadow: 0 0 12px rgba(0, 224, 255, 0.3);
+  box-shadow: 0 0 12px rgba(0, 224, 255, 0.15);
   transform: translateY(-2px);
 }
 
@@ -1372,7 +1372,7 @@ form button:hover {
 
 @keyframes pulse-future {
   0%, 100% { box-shadow: 0 0 0 4px var(--accent), 0 0 20px var(--accent-glow); }
-  50% { box-shadow: 0 0 0 4px var(--accent), 0 0 30px var(--accent-glow), 0 0 40px rgba(0, 224, 255, 0.3); }
+  50% { box-shadow: 0 0 0 4px var(--accent), 0 0 30px var(--accent-glow), 0 0 40px rgba(0, 224, 255, 0.15); }
 }
 
 /* Timeline cards - infographic style */
@@ -1646,7 +1646,7 @@ form button:hover {
 
 .timeline-container.card-view .timeline-content:hover {
   border-color: var(--accent);
-  box-shadow: 0 0 30px rgba(0, 224, 255, 0.15), 0 12px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 30px rgba(0, 224, 255, 0.075), 0 12px 32px rgba(0, 0, 0, 0.4);
   transform: translateY(-4px) translateX(0);
 }
 
@@ -1681,7 +1681,7 @@ form button:hover {
   background: var(--accent);
   color: var(--bg);
   border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(0, 224, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 224, 255, 0.15);
 }
 
 .timeline-container.card-view .timeline-item:nth-child(1) .timeline-content,

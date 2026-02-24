@@ -1,12 +1,48 @@
 [
   {
+    "title": "miniWorld – Continuous Design Manifolds from Geometric Constraints",
+    "description": "A data-free generative model that learns 3D LEGO-compatible brick shapes using only geometric constraints—no meshes or point clouds. Trains a single implicit neural decoder (WIRE) with constraint-based losses and a violation buffer so that sampling latent codes yields valid, diverse bricks. Explores whether continuous design manifolds and interpretable latent structure can emerge from constraint-only optimization instead of per-instance solving.",
+    "tags": ["Geometry-Informed Neural Networks", "Generative Models", "3D", "SDF", "Constraint-Based Learning", "PyTorch", "LEGO", "No Training Data", "Implicit Decoder"],
+    "repoUrl": "https://github.com/Dalu1234/GINNs-Geometry-informed-Neural-Networks",
+    "liveUrl": null,
+    "image": "assets/images/miniWorld.jpeg",
+    "featured": true
+  },
+  {
+    "title": "NEMO - Spatial Information Anchoring",
+    "description": "A mobile-first AR system that turns physical objects into voice-tagged knowledge. Point your phone at something, speak a note, and walk away; later, anyone can point at the same object and hear the note read back. Designed so on-site knowledge stays where the work happens.",
+    "tags": ["NVIDIA GTC", "AR", "Expo", "React Native", "Speech-to-Text", "Text-to-Speech", "Object Detection", "LLM", "Mobile", "Node.js"],
+    "repoUrl": "https://github.com/Dalu1234/Nemo",
+    "liveUrl": null,
+    "image": "assets/images/nemo.jpeg",
+    "featured": true
+  },
+
+  {
+    "title": "IronMiner – Spatial Intelligence for Construction",
+    "description": "An AI-powered construction site management platform that analyzes job site video to detect congestion, safety violations, and productivity bottlenecks. Features LiveKit-powered live worker feeds, helmet-cam 3D site capture via World Labs, voice notes with Parakeet transcription, and object embedding with NVIDIA Grounding DINO. Delivers plain-English briefings to non-technical site managers.",
+    "tags": ["AI Agents", "Construction", "3D", "Computer Vision", "LiveKit", "Safety", "React", "FastAPI", "LLM", "WebRTC", "3D"],
+    "repoUrl": "https://github.com/HackedRico/ironminer",
+    "liveUrl": null,
+    "image": "assets/images/ironminer.png",
+    "featured": true
+  },
+  {
+    "title": "Infinite Game – Dynamic Game Compiler from Natural Language",
+    "description": "Type what you want to learn and get a tailored educational game in seconds. Change your game from mechanics to genre in real time. Built in Godot 4 with a user model for difficulty and a knowledge graph of your progress, so learning stays personal and conversational.",
+    "tags": ["Godot 4", "AI", "Game", "World Model", "Education", "Game-Based Learning", "GDScript", "Natural Language", "Personalization"],
+    "repoUrl": null,
+    "liveUrl": null,
+    "image": "assets/images/infiniteGame.png",
+    "featured": true
+  },
+  {
   "title": "RikRok – Tinder for Research Papers",
   "description": "An AI-powered research discovery app that helps users find, swipe, and save AI papers from arXiv. Built with React Native and integrated with Anthropic's Claude for paper summarization and recommendation. Designed to make exploring new research engaging, intuitive, and conversational.",
   "tags": ["🏆 1st Place · UMD × Anthropic", "React Native", "Anthropic", "Claude", "AI", "arXiv", "Mobile", "JavaScript"],
   "repoUrl": "https://github.com/dalu1234/rikrok",
   "liveUrl": null,
-  "image": "assets/images/1110.gif",
-  "featured": true
+  "image": "assets/images/1110.gif"
 },
 {
   "title": "Quest – AI-Generated Daily Campus Challenges",
@@ -14,8 +50,7 @@
   "tags": ["AI", "Campus Life", "Well-being", "React Native", "Student Engagement", "Daily Challenges"],
   "repoUrl": null,
   "liveUrl": null,
-  "image": "assets/images/buest.gif",
-  "featured": true
+  "image": "assets/images/buest.gif"
 },
 {
   "title": "Classroom TA – Multi-Agent Teaching Assistant",
@@ -23,8 +58,7 @@
   "tags": ["AI Agents", "Education", "Multi-Agent Systems", "Teacher Assistant", "LLM", "Automation"],
   "repoUrl": "https://github.com/Dalu1234/Teacher-Assistant",
   "liveUrl": null,
-  "image": "assets/images/ba.gif",
-  "featured": true
+  "image": "assets/images/ba.gif"
 }
 
 ,
