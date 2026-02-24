@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What I'm Working On | Chukwudalu Dumebi-Kachikwu</title>
-  <meta name="description" content="Current projects, learning experiments, and focus areas in AI development." />
+  <meta name="description" content="Current research projects, systems I am building, and active learning directions in AI, world models, and spatial intelligence." />
   
-  <!-- Favicon (tiny inline SVG) -->
   <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><rect width="64" height="64" rx="12" ry="12" fill="%230b0f17"/><text x="50%" y="55%" font-size="36" text-anchor="middle" fill="%23a3e635" font-family="sans-serif">C</text></svg>' />
   
   <link rel="stylesheet" href="assets/styles.css">
@@ -20,7 +19,7 @@
     <nav class="nav container" aria-label="Primary">
       <a class="brand" href="index.html">
         <span class="brand-name">Chukwudalu Dumebi-Kachikwu</span>
-        <span class="brand-tagline">AI • RAG • XAI • Multi-Agent Systems</span>
+        <span class="brand-tagline">World Models • Geometry AI • Multi-Agent Systems</span>
       </a>
 
       <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light theme" aria-pressed="false" title="Toggle theme">
@@ -41,65 +40,63 @@
     <section class="current-work-section">
       <div class="current-work-header">
         <h1 class="page-title">What I'm Working On</h1>
-        <p class="update-date">Updated: December 2025</p>
+        <p class="update-date">Updated: February 2026</p>
       </div>
 
       <div class="current-work-container">
-        <!-- Top Row: Sprint + Main Focus -->
         <div class="current-work-grid">
-          <!-- Sprint Card (Left - Narrower) -->
           <article class="work-card sprint-card">
             <span class="card-label">Sprint of the Week</span>
-            <h2 class="work-title">Screen shot transcriber</h2>
+            <h2 class="work-title">Spatial Reasoning Prototypes</h2>
             <ul class="sprint-list">
-              <li>Built a chrome extension to help transcribe clips from youtube. Like coding segments</li>
+              <li>Iterating on fast prototypes for 3D and 4D scene understanding from egocentric video from construction sites</li>
+              <li>Creating a management system for construction sites that uses the 3D and 4D scene understanding to detect safety violations and productivity bottlenecks</li>
+              <li>Recreating constrcution sites using gaussian splats</li>
             </ul>
             <span class="status-pill in-progress">In Progress</span>
           </article>
 
-          <!-- Main Focus Card (Right - Wider) -->
           <article class="work-card main-focus-card">
             <span class="card-label">Main Focus</span>
-            <h2 class="work-title">High-Performance Multi-Agent Simulation</h2>
+            <h2 class="work-title">Minimal World Models from Geometry</h2>
             <p class="work-description">
-              Building GPU-accelerated simulation systems that combine physics, navigation, and 
-              intelligent agent behavior. Focused on creating scalable, high-fidelity environments
-              that model real-world crowd movement and safety scenarios in real time.
+              Building geometry informed world models that learn structure, connectivity, and dynamics directly from constraints rather than large datasets.
+              The goal is to represent objects, scenes, and agents as continuous latent programs that can be reasoned over, simulated, and composed.
+              This work feeds into educational game engines, spatial intelligence systems, and research submissions.
             </p>
             
             <div class="progress-section">
               <div class="progress-steps">
                 <div class="step completed">
                   <span class="step-marker"></span>
-                  <span class="step-label">Simulation Engine</span>
+                  <span class="step-label">Geometric Representations</span>
                 </div>
                 <div class="step completed">
                   <span class="step-marker"></span>
-                  <span class="step-label">Agent Behavior</span>
+                  <span class="step-label">Constraint Losses</span>
                 </div>
                 <div class="step active">
                   <span class="step-marker"></span>
-                  <span class="step-label">UI & Visualization</span>
+                  <span class="step-label">Multi Object Generalization</span>
                 </div>
                 <div class="step">
                   <span class="step-marker"></span>
-                  <span class="step-label">Production Deploy</span>
+                  <span class="step-label">Paper Submission</span>
                 </div>
               </div>
             </div>
 
             <div class="tech-stack">
-              <span class="tech-pill">Warp</span>
-              <span class="tech-pill">Omniverse Kit</span>
-              <span class="tech-pill">PhysX</span>
-              <span class="tech-pill">Isaac NavMesh</span>
-              <span class="tech-pill">Python</span>
+              <span class="tech-pill">PyTorch</span>
+              <span class="tech-pill">GINNs</span>
+              <span class="tech-pill">Gaussian Splatting</span>
+              <span class="tech-pill">Marching cubes / mesh extraction</span>
               <span class="tech-pill">CUDA</span>
+              <span class="tech-pill">Python</span>
             </div>
           </article>
         </div>
 
-        <!-- Bottom Row: Learning & Experiments (Full Width) -->
         <article class="work-card learning-card">
           <span class="card-label">Learning & Experiments</span>
           <h2 class="work-title">Current Explorations</h2>
@@ -110,7 +107,7 @@
                 <span class="learning-label">Reading</span>
                 <span class="learning-icon"></span>
               </div>
-              <p class="learning-desc">Deep diving into QUBOS</p>
+              <p class="learning-desc">D4RT paper</p>
             </div>
 
             <div class="learning-divider"></div>
@@ -120,7 +117,7 @@
                 <span class="learning-label">Experiment</span>
                 <span class="learning-icon"></span>
               </div>
-              <p class="learning-desc">Implementing path-following for crowdflow</p>
+              <p class="learning-desc">Learning object connectivity and physical affordances without explicit supervision</p>
             </div>
 
             <div class="learning-divider"></div>
@@ -130,7 +127,7 @@
                 <span class="learning-label">Building</span>
                 <span class="learning-icon"></span>
               </div>
-              <p class="learning-desc">Reinforcement learning workshop</p>
+              <p class="learning-desc">A native world model game engine</p>
             </div>
 
             <div class="learning-divider"></div>
@@ -140,7 +137,7 @@
                 <span class="learning-label">Insight</span>
                 <span class="learning-icon"></span>
               </div>
-              <p class="learning-desc">Metavision planning like Blue Lock</p>
+              <p class="learning-desc">Amplification through precsion and precision through amplification</p>
             </div>
 
             <div class="learning-divider"></div>
@@ -150,7 +147,7 @@
                 <span class="learning-label">Exploring</span>
                 <span class="learning-icon"></span>
               </div>
-              <p class="learning-desc">Possible coporate sponsors for a quantum project</p>
+              <p class="learning-desc">Ways to improve constraint based learning</p>
             </div>
           </div>
         </article>
