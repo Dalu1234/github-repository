@@ -42,27 +42,39 @@
   </header>
 
   <main id="main" class="container">
-    <section class="intro" aria-labelledby="intro-heading">
-      <h1 id="intro-heading">Projects</h1>
-      <p class="lead">A curated collection of AI research and development work spanning RAG systems, explainable AI, and multi-agent architectures.</p>
-    </section>
-
-    <section class="controls" aria-label="Search and filters">
-      <div class="search-wrap">
-        <label for="search" class="search-label">Search projects</label>
-        <input id="search" class="search-input" type="search" placeholder="Search by title, description, or technology…" autocomplete="off" />
-      </div>
-
-      <div id="filters" class="filters" role="toolbar" aria-label="Filter by tag">
-        <!-- Tag chips inserted by JS -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <p class="eyebrow">Portfolio — 2026</p>
+      <h1 id="hero-heading" class="display">Building AI systems that explain themselves.</h1>
+      <p class="lead">A collection of work across RAG systems, world models, multi-agent architectures, and spatial intelligence — most of it shipped from the University of Maryland.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#projects">View projects</a>
+        <a class="btn btn-secondary" href="about.html">Read about me</a>
       </div>
     </section>
 
-    <section aria-live="polite" aria-busy="true">
-      <div id="projectGrid" class="grid">
-        <!-- Cards inserted by JS -->
+    <hr class="rule" />
+
+    <section id="projects" class="projects-section" aria-labelledby="projects-heading">
+      <p class="eyebrow">Selected Work</p>
+      <h2 id="projects-heading" class="section-title">Projects</h2>
+
+      <div class="controls" role="search" aria-label="Search and filters">
+        <div class="search-wrap">
+          <label for="search" class="visually-hidden">Search projects</label>
+          <input id="search" class="search-input" type="search" placeholder="Search by title, description, or technology…" autocomplete="off" />
+        </div>
+
+        <div id="filters" class="filters" role="toolbar" aria-label="Filter by tag">
+          <!-- Tag chips inserted by JS -->
+        </div>
       </div>
-      <p id="emptyState" class="empty" hidden>No projects match your filters.</p>
+
+      <div aria-live="polite" aria-busy="true">
+        <div id="projectGrid" class="grid">
+          <!-- Cards inserted by JS -->
+        </div>
+        <p id="emptyState" class="empty" hidden>No projects match your filters.</p>
+      </div>
     </section>
   </main>
 
