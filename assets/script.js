@@ -8,29 +8,12 @@ window.CONFIG = {
 /* ---------------------------------------- */
 
 (function () {
-  const html = document.documentElement;
-  const themeToggleBtn = document.getElementById("themeToggle");
   const grid = document.getElementById("projectGrid");
   const filtersEl = document.getElementById("filters");
   const searchInput = document.getElementById("search");
   const emptyState = document.getElementById("emptyState");
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-  /* ---------- Theme (default dark + respects prefers-color-scheme) ---------- */
-  const storedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const startTheme = storedTheme || (prefersDark ? "dark" : "light");
-  html.setAttribute("data-theme", startTheme);
-  if (themeToggleBtn) themeToggleBtn.setAttribute("aria-pressed", startTheme === "dark" ? "true" : "false");
-
-  themeToggleBtn?.addEventListener("click", () => {
-    const current = html.getAttribute("data-theme");
-    const next = current === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-    themeToggleBtn.setAttribute("aria-pressed", next === "dark" ? "true" : "false");
-  });
 
   /* ---------- Modal helpers ---------- */
   const modal = document.getElementById("modal");
