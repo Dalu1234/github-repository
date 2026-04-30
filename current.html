@@ -33,122 +33,76 @@
   </header>
 
   <main id="main" class="container">
-    <section class="current-work-section">
-      <div class="current-work-header">
-        <h1 class="page-title">What I'm Working On</h1>
-        <p class="update-date">Updated: February 2026</p>
-      </div>
-
-      <div class="current-work-container">
-        <div class="current-work-grid">
-          <article class="work-card sprint-card">
-            <span class="card-label">Sprint of the Week</span>
-            <h2 class="work-title">Spatial Reasoning Prototypes</h2>
-            <ul class="sprint-list">
-              <li>Iterating on fast prototypes for 3D and 4D scene understanding from egocentric video from construction sites</li>
-              <li>Creating a management system for construction sites that uses the 3D and 4D scene understanding to detect safety violations and productivity bottlenecks</li>
-              <li>Recreating constrcution sites using gaussian splats</li>
-            </ul>
-            <span class="status-pill in-progress">In Progress</span>
-          </article>
-
-          <article class="work-card main-focus-card">
-            <span class="card-label">Main Focus</span>
-            <h2 class="work-title">Minimal World Models from Geometry</h2>
-            <p class="work-description">
-              Building geometry informed world models that learn structure, connectivity, and dynamics directly from constraints rather than large datasets.
-              The goal is to represent objects, scenes, and agents as continuous latent programs that can be reasoned over, simulated, and composed.
-              This work feeds into educational game engines, spatial intelligence systems, and research submissions.
-            </p>
-            
-            <div class="progress-section">
-              <div class="progress-steps">
-                <div class="step completed">
-                  <span class="step-marker"></span>
-                  <span class="step-label">Geometric Representations</span>
-                </div>
-                <div class="step completed">
-                  <span class="step-marker"></span>
-                  <span class="step-label">Constraint Losses</span>
-                </div>
-                <div class="step active">
-                  <span class="step-marker"></span>
-                  <span class="step-label">Multi Object Generalization</span>
-                </div>
-                <div class="step">
-                  <span class="step-marker"></span>
-                  <span class="step-label">Paper Submission</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="tech-stack">
-              <span class="tech-pill">PyTorch</span>
-              <span class="tech-pill">GINNs</span>
-              <span class="tech-pill">Gaussian Splatting</span>
-              <span class="tech-pill">Marching cubes / mesh extraction</span>
-              <span class="tech-pill">CUDA</span>
-              <span class="tech-pill">Python</span>
-            </div>
-          </article>
-        </div>
-
-        <article class="work-card learning-card">
-          <span class="card-label">Learning & Experiments</span>
-          <h2 class="work-title">Current Explorations</h2>
-          
-          <div class="learning-list">
-            <div class="learning-item">
-              <div class="learning-header">
-                <span class="learning-label">Reading</span>
-                <span class="learning-icon"></span>
-              </div>
-              <p class="learning-desc">D4RT paper</p>
-            </div>
-
-            <div class="learning-divider"></div>
-
-            <div class="learning-item">
-              <div class="learning-header">
-                <span class="learning-label">Experiment</span>
-                <span class="learning-icon"></span>
-              </div>
-              <p class="learning-desc">Learning object connectivity and physical affordances without explicit supervision</p>
-            </div>
-
-            <div class="learning-divider"></div>
-
-            <div class="learning-item">
-              <div class="learning-header">
-                <span class="learning-label">Building</span>
-                <span class="learning-icon"></span>
-              </div>
-              <p class="learning-desc">A native world model game engine</p>
-            </div>
-
-            <div class="learning-divider"></div>
-
-            <div class="learning-item">
-              <div class="learning-header">
-                <span class="learning-label">Insight</span>
-                <span class="learning-icon"></span>
-              </div>
-              <p class="learning-desc">Amplification through precsion and precision through amplification</p>
-            </div>
-
-            <div class="learning-divider"></div>
-
-            <div class="learning-item">
-              <div class="learning-header">
-                <span class="learning-label">Exploring</span>
-                <span class="learning-icon"></span>
-              </div>
-              <p class="learning-desc">Ways to improve constraint based learning</p>
-            </div>
-          </div>
-        </article>
-      </div>
+    <section class="page-intro" aria-labelledby="current-heading">
+      <p class="eyebrow">Current Work · Updated February 2026</p>
+      <h1 id="current-heading" class="display page-display">What I'm working on right now.</h1>
+      <p class="lead">A live record of where my attention sits across research, projects, and experiments.</p>
     </section>
+
+    <hr class="rule" />
+
+    <article class="field-note">
+      <p class="eyebrow">Sprint of the week · In progress</p>
+      <h2 class="field-title">Spatial reasoning prototypes</h2>
+      <ul class="field-list">
+        <li>Iterating on fast prototypes for 3D and 4D scene understanding from egocentric video from construction sites.</li>
+        <li>Creating a management system for construction sites that uses the 3D and 4D scene understanding to detect safety violations and productivity bottlenecks.</li>
+        <li>Recreating construction sites using gaussian splats.</li>
+      </ul>
+    </article>
+
+    <hr class="rule" />
+
+    <article class="field-note">
+      <p class="eyebrow">Main focus</p>
+      <h2 class="field-title">Minimal world models from geometry.</h2>
+      <p class="lead">Building geometry-informed world models that learn structure, connectivity, and dynamics directly from constraints rather than large datasets. The goal is to represent objects, scenes, and agents as continuous latent programs that can be reasoned over, simulated, and composed. This work feeds into educational game engines, spatial intelligence systems, and research submissions.</p>
+
+      <ol class="progress" aria-label="Progress on main focus">
+        <li class="progress-step done"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Geometric representations</span></li>
+        <li class="progress-step done"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Constraint losses</span></li>
+        <li class="progress-step active" aria-current="step"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Multi-object generalization</span></li>
+        <li class="progress-step"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Paper submission</span></li>
+      </ol>
+
+      <div class="tag-row field-tags">
+        <span class="tag">PyTorch</span>
+        <span class="tag">GINNs</span>
+        <span class="tag">Gaussian Splatting</span>
+        <span class="tag">Marching Cubes</span>
+        <span class="tag">CUDA</span>
+        <span class="tag">Python</span>
+      </div>
+    </article>
+
+    <hr class="rule" />
+
+    <article class="field-note">
+      <p class="eyebrow">Learning &amp; experiments</p>
+      <h2 class="field-title">Current explorations.</h2>
+      <dl class="learning-dl">
+        <div class="learning-row">
+          <dt>Reading</dt>
+          <dd>D4RT paper.</dd>
+        </div>
+        <div class="learning-row">
+          <dt>Experiment</dt>
+          <dd>Learning object connectivity and physical affordances without explicit supervision.</dd>
+        </div>
+        <div class="learning-row">
+          <dt>Building</dt>
+          <dd>A native world model game engine.</dd>
+        </div>
+        <div class="learning-row">
+          <dt>Insight</dt>
+          <dd>Amplification through precision and precision through amplification.</dd>
+        </div>
+        <div class="learning-row">
+          <dt>Exploring</dt>
+          <dd>Ways to improve constraint-based learning.</dd>
+        </div>
+      </dl>
+    </article>
   </main>
 
   <footer class="site-footer">
