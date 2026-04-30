@@ -45,24 +45,6 @@
   /* Motion */
   --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
   --dur:  200ms;
-
-  /* Legacy aliases — kept temporarily so untouched components don't shatter
-     during the staged rewrite. Removed in step 10. */
-  --bg: var(--paper);
-  --bg-card: var(--card);
-  --bg-raised: var(--paper-deep);
-  --text: var(--ink);
-  --text-secondary: var(--ink-muted);
-  --accent: var(--crail);
-  --accent-glow: rgba(204, 120, 92, 0.12);
-  --border: var(--rule);
-  --border-hover: rgba(31, 30, 29, 0.2);
-  --glass-bg: var(--paper);
-  --shadow-subtle: none;
-  --shadow-glow: none;
-  --font-title: var(--font-serif);
-  --font-body: var(--font-sans);
-  --font-code: var(--font-mono);
 }
 
 /* Base & Reset */
@@ -592,21 +574,6 @@ a.inline-link:hover {
   color: var(--ink-muted);
 }
 .footer-bottom p { margin: 0; }
-/* Legacy footer alias from old markup — remains until older pages catch up */
-.social {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-}
-.social a {
-  color: var(--ink-soft);
-  text-decoration: none;
-  transition: color var(--dur) var(--ease);
-}
-.social a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 
 /* Modal (editorial) */
 .modal[hidden] { display: none; }

@@ -1,12 +1,3 @@
-/* ---------- Config (edit these) ---------- */
-window.CONFIG = {
-  // Set this to enable automatic stars/forks fetching for repos
-  // that match https://github.com/<githubUsername>/<repo>
-  githubUsername: "Dalu1234", // e.g., "dalu1234"
-  enableRepoStats: true
-};
-/* ---------------------------------------- */
-
 (function () {
   const grid = document.getElementById("projectGrid");
   const filtersEl = document.getElementById("filters");
@@ -47,7 +38,6 @@ window.CONFIG = {
 
   /* ---------- Fetch & Render ---------- */
   async function init() {
-    // Only run on pages that have a grid (index); About/Contact still need theme/year
     if (!grid) return;
 
     try {
@@ -256,69 +246,7 @@ window.CONFIG = {
     `);
   }
 
-  // Kick off only on pages that include grid; still safe elsewhere
-  document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", init) : init();
-
-  /* ---------- Scroll-triggered animations for Experience page ---------- */
-  function initScrollAnimations() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    if (timelineItems.length === 0) return; // Not on experience page
-
-    const observerOptions = {
-      threshold: 0.2,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target); // Only animate once
-        }
-      });
-    }, observerOptions);
-
-    timelineItems.forEach(item => {
-      observer.observe(item);
-    });
-  }
-
-  /* ---------- Timeline View Toggle ---------- */
-  function initViewToggle() {
-    const viewToggle = document.getElementById('viewToggle');
-    const timelineContainer = document.getElementById('timelineContainer');
-    
-    if (!viewToggle || !timelineContainer) return; // Not on experience page
-
-    // Get stored preference or default to infographic view
-    const storedView = localStorage.getItem('timelineView') || 'infographic';
-    
-    if (storedView === 'card') {
-      timelineContainer.classList.add('card-view');
-      viewToggle.querySelector('.toggle-label').textContent = 'Switch to Infographic View';
-    }
-
-    viewToggle.addEventListener('click', () => {
-      const isCardView = timelineContainer.classList.toggle('card-view');
-      
-      if (isCardView) {
-        viewToggle.querySelector('.toggle-label').textContent = 'Switch to Infographic View';
-        localStorage.setItem('timelineView', 'card');
-      } else {
-        viewToggle.querySelector('.toggle-label').textContent = 'Switch to Card View';
-        localStorage.setItem('timelineView', 'infographic');
-      }
-    });
-  }
-
-  // Initialize scroll animations when DOM is ready
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      initScrollAnimations();
-      initViewToggle();
-    });
-  } else {
-    initScrollAnimations();
-    initViewToggle();
-  }
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", init)
+    : init();
 })();
