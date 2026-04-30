@@ -604,82 +604,96 @@ a.inline-link:hover {
 }
 .social a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 
-/* Modal - Cyberpunk Glass */
+/* Modal (editorial) */
 .modal[hidden] { display: none; }
-.modal { 
+.modal {
   position: fixed;
   inset: 0;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeIn 0.3s ease;
+  padding: 24px;
 }
-.modal-backdrop { 
+.modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(12, 12, 12, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(25, 25, 25, 0.4);
+  animation: modalFade 180ms var(--ease);
 }
 .modal-card {
   position: relative;
   z-index: 101;
-  width: min(680px, 92%);
-  border: 1px solid var(--border-hover);
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 20px;
-  max-height: 90vh;
+  width: min(720px, 100%);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  max-height: 88vh;
   overflow-y: auto;
-  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: center;
-  box-shadow: 0 0 40px var(--accent-glow), var(--shadow-subtle);
+  padding: 40px;
+  animation: modalIn 180ms var(--ease);
 }
-.modal-header { 
-  padding: 24px;
+.modal-header {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+#modalTitle {
+  font-family: var(--font-serif);
+  font-size: var(--t-h2);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  max-width: 28ch;
+}
+.modal-close {
+  display: inline-flex;
   align-items: center;
-  border-bottom: 1px solid var(--border);
-}
-#modalTitle { 
-  font-family: var(--font-title);
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-.modal-footer { 
-  padding: 20px 24px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  justify-content: flex-end;
-}
-.modal-body { 
-  padding: 24px;
-}
-.modal-close { 
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  font-size: 24px;
-  cursor: pointer;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1;
-  padding: 0;
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
 }
-.modal-close:hover { 
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
-  box-shadow: 0 0 16px var(--accent-glow);
+.modal-close:hover { background: var(--ink); color: var(--paper); }
+.modal-body { padding: 0; }
+.modal-prose p {
+  font-family: var(--font-sans);
+  font-size: var(--t-body);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 18px;
+}
+.modal-prose .modal-tags {
+  margin: 18px 0 24px;
+}
+.modal-prose .modal-links {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-meta);
+  color: var(--ink-muted);
+}
+.modal-link-sep { color: var(--ink-muted); margin: 0 4px; }
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Prose - For About Page */
