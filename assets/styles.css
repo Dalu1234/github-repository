@@ -13,9 +13,13 @@
   --ink-soft:     #3D3D3A;
   --ink-muted:    #6B6A65;
 
-  /* Accent — used sparingly */
+  /* Accent — used sparingly. --crail is the warm-clay accent for
+     non-text states (focus rings, progress dot, button :active fill).
+     --crail-deep is intentionally darker than design.md's spec'd
+     #B8553B so it can carry text and primary-button hover labels at
+     >=4.5:1 against --paper; the spec's lighter shade fails AA. */
   --crail:        #CC785C;
-  --crail-deep:   #B8553B;
+  --crail-deep:   #9E4329;
   --kraft:        #BFA98A;
 
   /* Type */
@@ -103,7 +107,7 @@ a.inline-link {
 }
 .prose a:hover,
 a.inline-link:hover {
-  color: var(--crail);
+  color: var(--crail-deep);
   text-decoration-thickness: 2px;
 }
 
@@ -510,7 +514,7 @@ a.inline-link:hover {
   display: inline-block;
   transition: transform var(--dur) var(--ease);
 }
-.card-link:hover { color: var(--crail); }
+.card-link:hover { color: var(--crail-deep); }
 .card-link:hover .card-arrow { transform: translateX(4px); }
 
 .empty {
@@ -800,7 +804,7 @@ a.inline-link:hover {
   text-decoration: none;
   transition: color var(--dur) var(--ease);
 }
-.contact-link:hover { color: var(--crail); }
+.contact-link:hover { color: var(--crail-deep); }
 
 /* Page-load fade — single, restrained */
 @keyframes pageFade {
