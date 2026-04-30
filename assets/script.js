@@ -155,22 +155,48 @@ window.CONFIG = {
     grid.innerHTML = "";
     emptyState.hidden = projects.length !== 0;
 
-    projects.forEach((p, i) => {
+    projects.forEach((p) => {
       const card = document.createElement("article");
       card.className = p.featured ? "card featured" : "card";
-      card.style.animationDelay = `${i * 100}ms`;
+
+      // Image
+      const imgWrap = document.createElement("div");
+      imgWrap.className = "card-image";
       const img = document.createElement("img");
       img.className = "thumb";
       img.loading = "lazy";
       img.decoding = "async";
       img.src = p.image || "";
       img.alt = p.title ? `${p.title} thumbnail` : "Project thumbnail";
-      card.appendChild(img);
+      imgWrap.appendChild(img);
+      card.appendChild(imgWrap);
 
       const body = document.createElement("div");
       body.className = "card-body";
 
-      const h3 = document.createElement("h2");
+      // Tag pills (max 3 + static "+N")
+      if (Array.isArray(p.tags) && p.tags.length) {
+        const tags = document.createElement("div");
+        tags.className = "tag-row";
+        const visible = p.tags.slice(0, 3);
+        const overflow = p.tags.length - visible.length;
+        visible.forEach(t => {
+          const tag = document.createElement("span");
+          tag.className = t.startsWith("🏆") ? "tag award-tag" : "tag";
+          tag.textContent = t;
+          tags.appendChild(tag);
+        });
+        if (overflow > 0) {
+          const more = document.createElement("span");
+          more.className = "tag tag-more";
+          more.textContent = `+${overflow}`;
+          more.title = p.tags.slice(3).join(", ");
+          tags.appendChild(more);
+        }
+        body.appendChild(tags);
+      }
+
+      const h3 = document.createElement("h3");
       h3.className = "card-title";
       h3.textContent = p.title || "Untitled Project";
       body.appendChild(h3);
@@ -180,129 +206,54 @@ window.CONFIG = {
       desc.textContent = p.description || "";
       body.appendChild(desc);
 
-      if (Array.isArray(p.tags) && p.tags.length) {
-        const tags = document.createElement("div");
-        tags.className = "tag-row";
-        const maxVisible = 2; // Show only 2 tags initially
-        let isExpanded = false;
-        
-        const renderTags = (showAll) => {
-          tags.innerHTML = "";
-          const tagsToShow = showAll ? p.tags : p.tags.slice(0, maxVisible);
-          
-          tagsToShow.forEach(t => {
-            const tag = document.createElement("span");
-            // Check if this is an award tag (starts with trophy emoji)
-            if (t.startsWith("🏆")) {
-              tag.className = "tag award-tag";
-            } else {
-              tag.className = "tag";
-            }
-            tag.textContent = t;
-            tags.appendChild(tag);
-          });
-          
-          // Add "+X more" or "Show less" button
-          if (p.tags.length > maxVisible) {
-            const toggleTag = document.createElement("span");
-            toggleTag.className = "tag more-tags";
-            
-            if (showAll) {
-              toggleTag.textContent = "Show less";
-              toggleTag.addEventListener("click", (e) => {
-                e.stopPropagation();
-                isExpanded = false;
-                renderTags(false);
-              });
-            } else {
-              toggleTag.textContent = `+${p.tags.length - maxVisible} more`;
-              toggleTag.title = p.tags.slice(maxVisible).join(", ");
-              toggleTag.addEventListener("click", (e) => {
-                e.stopPropagation();
-                isExpanded = true;
-                renderTags(true);
-              });
-            }
-            
-            tags.appendChild(toggleTag);
-          }
-        };
-        
-        renderTags(isExpanded);
-        body.appendChild(tags);
-      }
+      // Footer: meta on left, "Read more →" on right
+      const footer = document.createElement("div");
+      footer.className = "card-footer";
 
-      const meta = document.createElement("div");
-      meta.className = "meta";
+      const meta = document.createElement("span");
+      meta.className = "card-meta";
+      const metaText = (p.tags || []).find(t => !t.startsWith("🏆")) || "";
+      meta.textContent = metaText;
+      footer.appendChild(meta);
 
-      const stat = document.createElement("div");
-      stat.className = "stat";
-      stat.textContent = "★ —   🍴 —"; // placeholders updated if API fetch succeeds
-      meta.appendChild(stat);
+      const readMore = document.createElement("button");
+      readMore.className = "card-link";
+      readMore.type = "button";
+      readMore.setAttribute("aria-label", `Read more about ${p.title || "this project"}`);
+      readMore.innerHTML = `Read more <span class="card-arrow" aria-hidden="true">&rarr;</span>`;
+      readMore.addEventListener("click", () => openProjectModal(p));
+      footer.appendChild(readMore);
 
-      const links = document.createElement("div");
-      links.className = "links";
-
-      if (p.repoUrl) {
-        const a = document.createElement("a");
-        a.href = p.repoUrl;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.className = "btn";
-        a.textContent = "GitHub";
-        links.appendChild(a);
-      }
-
-      if (p.liveUrl) {
-        const a = document.createElement("a");
-        a.href = p.liveUrl;
-        a.target = "_blank";
-        a.rel = "noopener";
-        a.className = "btn";
-        a.textContent = "Live Demo";
-        links.appendChild(a);
-      }
-
-      const detailsBtn = document.createElement("button");
-      detailsBtn.className = "btn";
-      detailsBtn.type = "button";
-      detailsBtn.textContent = "Details";
-      detailsBtn.addEventListener("click", () => {
-        const safeUrl = (url) => url ? `<a href="${url}" target="_blank" rel="noopener">${url}</a>` : "<em>—</em>";
-        openModal(p.title, `
-          <div class="prose">
-            <p>${p.description || ""}</p>
-            <p><strong>Tags:</strong> ${(p.tags || []).join(", ") || "—"}</p>
-            <p><strong>Repo:</strong> ${safeUrl(p.repoUrl)}</p>
-            <p><strong>Live:</strong> ${safeUrl(p.liveUrl)}</p>
-          </div>
-        `);
-      });
-      links.appendChild(detailsBtn);
-
-      meta.appendChild(links);
-      body.appendChild(meta);
+      body.appendChild(footer);
       card.appendChild(body);
       grid.appendChild(card);
-
-      // Optional: fetch stars/forks if configured and repo matches username
-      if (window.CONFIG.enableRepoStats && window.CONFIG.githubUsername && p.repoUrl) {
-        const match = p.repoUrl.match(/^https?:\/\/github\.com\/([^\/]+)\/([^\/#]+)/i);
-        if (match && match[1].toLowerCase() === window.CONFIG.githubUsername.toLowerCase()) {
-          const repo = match[2];
-          fetch(`https://api.github.com/repos/${window.CONFIG.githubUsername}/${repo}`)
-            .then(r => r.ok ? r.json() : null)
-            .then(data => {
-              if (data) stat.textContent = `★ ${data.stargazers_count ?? 0}   🍴 ${data.forks_count ?? 0}`;
-            })
-            .catch(() => {/* silent */});
-        }
-      }
     });
 
-    // a11y live-region state
-    const section = grid.closest("section[aria-live]");
+    const section = grid.closest("[aria-live]");
     if (section) section.setAttribute("aria-busy", "false");
+  }
+
+  function openProjectModal(p) {
+    const escapeHtml = (s) => String(s).replace(/[&<>"']/g, c => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[c]));
+    const linkLine = (url, label) => url
+      ? `<a class="inline-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${label}</a>`
+      : null;
+    const links = [linkLine(p.repoUrl, "Repository"), linkLine(p.liveUrl, "Live demo")]
+      .filter(Boolean).join(' <span class="modal-link-sep" aria-hidden="true">·</span> ');
+    const tags = (p.tags || []).map(t => {
+      const cls = t.startsWith("🏆") ? "tag award-tag" : "tag";
+      return `<span class="${cls}">${escapeHtml(t)}</span>`;
+    }).join("");
+
+    openModal(p.title || "Project", `
+      <div class="modal-prose">
+        <p>${escapeHtml(p.description || "")}</p>
+        ${tags ? `<div class="tag-row modal-tags">${tags}</div>` : ""}
+        ${links ? `<p class="modal-links">${links}</p>` : ""}
+      </div>
+    `);
   }
 
   // Kick off only on pages that include grid; still safe elsewhere
