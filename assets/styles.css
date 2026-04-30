@@ -287,98 +287,91 @@ a.inline-link:hover {
   padding-bottom: clamp(48px, 7vw, 96px);
 }
 
-/* Search - Glassmorphism */
-.controls { 
-  padding: 0 0 56px;
-  max-width: 720px;
-  margin: 0 auto;
+/* Search & filters (editorial) */
+.controls {
+  padding: 0 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
-.search-wrap { margin-bottom: 24px; }
-.search-label { 
-  display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
+.search-wrap { margin: 0; }
 .search-input {
   width: 100%;
-  padding: 14px 20px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  color: var(--text);
-  font-size: 15px;
-  font-family: var(--font-body);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.search-input:focus { 
-  border-color: var(--accent);
-  outline: none;
-  background: var(--bg-raised);
-  box-shadow: 0 0 0 3px var(--accent-glow), var(--shadow-subtle);
-  transform: translateY(-2px);
+  padding: 14px 0 14px 28px;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  font-size: var(--t-lead);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B6A65' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='11' cy='11' r='7'/><path d='m20 20-3-3'/></svg>");
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+  background-size: 18px 18px;
+  transition: border-color var(--dur) var(--ease);
 }
 .search-input::placeholder {
-  color: var(--text-secondary);
+  color: var(--ink-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+.search-input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--crail);
+  padding-bottom: 13px;
 }
 
-/* Filters - Neon Pills */
-.filters { 
-  display: flex; 
-  flex-wrap: wrap; 
+.filters {
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  justify-content: center;
 }
 .chip {
-  border: 1px solid var(--border);
-  background: var(--bg-card);
-  color: var(--text-secondary);
-  padding: 6px 12px;
-  border-radius: 14px;
-  cursor: pointer;
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11px;
   font-weight: 500;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  padding: 7px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.chip:hover {
+  border-color: rgba(31, 30, 29, 0.35);
+  background: transparent;
+}
+.chip[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
 }
 .chip.more-filters {
-  background: rgba(0, 224, 255, 0.15);
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--ink-muted);
+  border-style: dashed;
 }
 .chip.more-filters:hover {
-  background: var(--accent);
-  color: var(--bg);
-  box-shadow: 0 0 20px var(--accent-glow);
-  transform: translateY(-2px) scale(1.05);
+  color: var(--ink);
+  border-color: rgba(31, 30, 29, 0.35);
 }
-.chip:hover { 
-  background: var(--bg-raised);
-  color: var(--accent);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 0 16px var(--accent-glow);
+.chip .count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0;
+  color: var(--ink-muted);
+  margin-left: 2px;
 }
-.chip[aria-pressed="true"] { 
-  background: var(--accent);
-  color: var(--bg);
-  border-color: var(--accent);
-  box-shadow: 0 0 20px var(--accent-glow);
-  transform: scale(1.05);
-}
-.chip .count { 
-  opacity: 0.7;
-  margin-left: 6px;
-  font-size: 11px;
-  font-family: var(--font-code);
-}
+.chip[aria-pressed="true"] .count { color: var(--paper); opacity: 0.7; }
 
 /* Project grid (editorial) */
 .grid {
