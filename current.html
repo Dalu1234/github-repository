@@ -34,7 +34,7 @@
 
   <main id="main" class="container">
     <section class="page-intro" aria-labelledby="current-heading">
-      <p class="eyebrow">Current Work · Updated February 2026</p>
+      <p class="eyebrow">Current Work · Updated April 2026</p>
       <h1 id="current-heading" class="display page-display">What I'm working on right now.</h1>
       <p class="lead">A live record of where my attention sits across research, projects, and experiments.</p>
     </section>
@@ -43,11 +43,11 @@
 
     <article class="field-note">
       <p class="eyebrow">Sprint of the week · In progress</p>
-      <h2 class="field-title">Spatial reasoning prototypes</h2>
+      <h2 class="field-title">Creating the GaussianFlesh poster for CVPR.</h2>
       <ul class="field-list">
-        <li>Iterating on fast prototypes for 3D and 4D scene understanding from egocentric video from construction sites.</li>
-        <li>Creating a management system for construction sites that uses the 3D and 4D scene understanding to detect safety violations and productivity bottlenecks.</li>
-        <li>Recreating construction sites using gaussian splats.</li>
+        <li>Designing the CVPR 4D Vision Workshop poster for GaussianFlesh.</li>
+        <li>Consolidating key results — 30fps surface tracking, material swapping across rubber, metal, jelly, and fluid regimes.</li>
+        <li>Addressing reviewer gaps: baseline comparisons, drift metric specification, and scale context.</li>
       </ul>
     </article>
 
@@ -55,21 +55,25 @@
 
     <article class="field-note">
       <p class="eyebrow">Main focus</p>
-      <h2 class="field-title">Minimal world models from geometry.</h2>
-      <p class="lead">Building geometry-informed world models that learn structure, connectivity, and dynamics directly from constraints rather than large datasets. The goal is to represent objects, scenes, and agents as continuous latent programs that can be reasoned over, simulated, and composed. This work feeds into educational game engines, spatial intelligence systems, and research submissions.</p>
+      <h2 class="field-title">Extending GaussianFlesh to fracture and fluid regimes.</h2>
+      <p class="lead">With the unified Gaussian substrate, contact handling, and CVPR submission done, pushing the physics coverage to fracture mechanics and fluid simulation. Targeting topological changes under fracture and incompressible flow — both handled natively within the anisotropic Gaussian framework without switching representations.</p>
 
       <ol class="progress" aria-label="Progress on main focus">
-        <li class="progress-step done"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Geometric representations</span></li>
-        <li class="progress-step done"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Constraint losses</span></li>
-        <li class="progress-step active" aria-current="step"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Multi-object generalization</span></li>
-        <li class="progress-step"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Paper submission</span></li>
+        <li class="progress-step done"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Unified Gaussian substrate</span></li>
+        <li class="progress-step done"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Material swapping</span></li>
+        <li class="progress-step done"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Contact handling</span></li>
+        <li class="progress-step done"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">CVPR submission</span></li>
+        <li class="progress-step active" aria-current="step"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Fracture mechanics</span></li>
+        <li class="progress-step"><span class="progress-marker" aria-hidden="true"></span><span class="progress-label">Fluid simulation</span></li>
       </ol>
 
       <div class="tag-row field-tags">
-        <span class="tag">PyTorch</span>
-        <span class="tag">GINNs</span>
         <span class="tag">Gaussian Splatting</span>
-        <span class="tag">Marching Cubes</span>
+        <span class="tag">APIC</span>
+        <span class="tag">Fracture</span>
+        <span class="tag">MPM</span>
+        <span class="tag">Fluid Simulation</span>
+        <span class="tag">PyTorch</span>
         <span class="tag">CUDA</span>
         <span class="tag">Python</span>
       </div>
@@ -83,23 +87,23 @@
       <dl class="learning-dl">
         <div class="learning-row">
           <dt>Reading</dt>
-          <dd>D4RT paper.</dd>
+          <dd>NVIDIA Lyria 2.0 — generative 3D world reconstruction via video diffusion self-distillation and Gaussian Splat export.</dd>
         </div>
         <div class="learning-row">
           <dt>Experiment</dt>
-          <dd>Learning object connectivity and physical affordances without explicit supervision.</dd>
+          <dd>Contact handling via passive mesh skin as a constraint manifold coupled to the Gaussian substrate.</dd>
         </div>
         <div class="learning-row">
           <dt>Building</dt>
-          <dd>A native world model game engine.</dd>
+          <dd>GaussianFlesh CVPR poster — consolidating surface tracking and material swapping results.</dd>
         </div>
         <div class="learning-row">
           <dt>Insight</dt>
-          <dd>Amplification through precision and precision through amplification.</dd>
+          <dd>Geometry and physics should share a representation — covariance as a unified deformation and rendering primitive.</dd>
         </div>
         <div class="learning-row">
           <dt>Exploring</dt>
-          <dd>Ways to improve constraint-based learning.</dd>
+          <dd>Anti-drift mechanisms in long-trajectory Gaussian scene generation, relevant to 4D stability in GaussianFlesh.</dd>
         </div>
       </dl>
     </article>

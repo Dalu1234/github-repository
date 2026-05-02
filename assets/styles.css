@@ -239,10 +239,26 @@ a.inline-link:hover {
   border-top: 1px solid var(--rule);
   margin: clamp(48px, 7vw, 96px) 0;
 }
+/* First rule after top-of-page headline: keep tight — no UA hr height surprises */
+.hero + .rule,
+.page-intro + .rule {
+  margin: 16px 0 44px;
+  height: 0;
+  overflow: visible;
+}
 
 /* Hero (index) */
 .hero {
-  padding: clamp(56px, 8vw, 112px) 0 clamp(40px, 6vw, 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 28px;
+  padding: 32px 0 24px;
+}
+.hero .eyebrow,
+.hero .display,
+.hero .lead {
+  margin: 0;
 }
 .display {
   font-family: var(--font-serif);
@@ -367,6 +383,7 @@ a.inline-link:hover {
   padding-bottom: 16px;
 }
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   background: var(--card);
@@ -380,6 +397,7 @@ a.inline-link:hover {
 .card:hover {
   border-color: rgba(31, 30, 29, 0.2);
   transform: translateY(-2px);
+  cursor: pointer;
 }
 .card.featured { grid-column: span 1; }
 @media (min-width: 900px) {
@@ -492,12 +510,29 @@ a.inline-link:hover {
   cursor: pointer;
   transition: color var(--dur) var(--ease);
 }
+/* Extend the button's hit area to the entire card so any click on the
+   card opens the modal. The button stays the only focusable target,
+   so keyboard users still get one focus stop per card. */
+.card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
 .card-link .card-arrow {
   display: inline-block;
   transition: transform var(--dur) var(--ease);
 }
 .card-link:hover { color: var(--crail-deep); }
+.card:hover .card-link { color: var(--crail-deep); }
+.card:hover .card-link .card-arrow,
 .card-link:hover .card-arrow { transform: translateX(4px); }
+/* Keep focus-visible on just the button, not the whole card overlay */
+.card-link:focus-visible { outline: none; }
+.card:has(.card-link:focus-visible) {
+  outline: 2px solid var(--crail);
+  outline-offset: 3px;
+}
 
 .empty {
   text-align: center;
@@ -669,8 +704,20 @@ a.inline-link:hover {
 
 /* Page intro shared across about/current/experience/contact */
 .page-intro {
-  padding: clamp(56px, 8vw, 112px) 0 clamp(40px, 6vw, 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 32px 0 24px;
   max-width: 880px;
+}
+/* Flex gap replaces .display/.lead margins; scoped overrides beat .display.page-display (equal specificity wins by order below) */
+.page-intro .eyebrow,
+.page-intro .display,
+.page-intro .page-display,
+.page-intro .contact-display,
+.page-intro .lead {
+  margin: 0;
 }
 .page-display {
   font-family: var(--font-serif);
@@ -861,13 +908,13 @@ main {
 }
 .field-tags { margin-top: 8px; }
 
-/* Progress steps (calm) */
+/* Progress steps (calm) — fixed column counts avoid a lone orphan (e.g. 6 steps as 3+3) */
 .progress {
   list-style: none;
   margin: 32px 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   position: relative;
   border-top: 1px solid var(--rule);
@@ -880,7 +927,12 @@ main {
   gap: 10px;
   border-right: 1px solid var(--rule);
 }
-.progress-step:last-child { border-right: 0; }
+.progress-step:nth-child(3n) {
+  border-right: 0;
+}
+.progress-step:nth-child(-n + 3) {
+  border-bottom: 1px solid var(--rule);
+}
 .progress-marker {
   display: inline-block;
   width: 8px;
@@ -908,6 +960,38 @@ main {
 .progress-step.done .progress-label,
 .progress-step.active .progress-label {
   color: var(--ink);
+}
+@media (max-width: 680px) {
+  .progress {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .progress-step:nth-child(3n) {
+    border-right: 1px solid var(--rule);
+  }
+  .progress-step:nth-child(-n + 3) {
+    border-bottom: 0;
+  }
+  .progress-step:nth-child(2n) {
+    border-right: 0;
+  }
+  .progress-step:nth-child(-n + 4) {
+    border-bottom: 1px solid var(--rule);
+  }
+}
+@media (max-width: 420px) {
+  .progress {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .progress-step:nth-child(3n),
+  .progress-step:nth-child(2n) {
+    border-right: 0;
+  }
+  .progress-step:nth-child(-n + 4) {
+    border-bottom: 0;
+  }
+  .progress-step:not(:last-child) {
+    border-bottom: 1px solid var(--rule);
+  }
 }
 
 /* Learning experiments dl */
@@ -949,6 +1033,10 @@ main {
   list-style: none;
   margin: 0 0 clamp(48px, 7vw, 96px);
   padding: 0;
+}
+/* Single divider: first row’s border replaces the standalone <hr> used on other pages */
+.page-intro + .timeline {
+  margin-top: clamp(16px, 2.5vw, 28px);
 }
 .timeline-row {
   display: grid;
