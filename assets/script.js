@@ -228,9 +228,12 @@
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
     }[c]));
     const linkLine = (url, label) => url
-      ? `<a class="inline-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${label}</a>`
+      ? `<a class="inline-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`
       : null;
-    const links = [linkLine(p.repoUrl, "Repository"), linkLine(p.liveUrl, "Live demo")]
+    const links = [
+      linkLine(p.repoUrl, "Repository"),
+      linkLine(p.liveUrl, p.liveUrlLabel || "Live demo"),
+    ]
       .filter(Boolean).join(' <span class="modal-link-sep" aria-hidden="true">·</span> ');
     const tags = (p.tags || []).map(t => {
       const cls = t.startsWith("🏆") ? "tag award-tag" : "tag";

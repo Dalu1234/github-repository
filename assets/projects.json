@@ -1,5 +1,24 @@
 [
   {
+    "title": "GaussianFlesh – Physics-grounded 4D human simulation",
+    "description": "Physics-grounded 4D human simulation using anisotropic Gaussians as a unified geometry-physics-rendering substrate; Total Lagrangian APIC mechanics. Accepted to CVPR 2026.",
+    "tags": ["CVPR 2026", "Gaussian Splatting", "4D", "APIC", "Research", "STAR Labs"],
+    "repoUrl": null,
+    "liveUrl": "https://starlaboratories.org/papers/gaussianflesh.pdf",
+    "liveUrlLabel": "Paper",
+    "image": "assets/images/gaussianflesh.png",
+    "featured": true
+  },
+  {
+    "title": "ThinkPop – AI teacher with 3D math lessons",
+    "description": "AI teacher that moves, gestures, and conjures 3D math lessons in real time, powered by a motion diffusion model.",
+    "tags": ["Education", "3D", "Motion Diffusion", "Real-Time", "AI"],
+    "repoUrl": "https://github.com/Dalu1234/ThinkPop",
+    "liveUrl": null,
+    "image": "assets/images/thinkpop.png",
+    "featured": true
+  },
+  {
     "title": "miniWorld – Continuous Design Manifolds from Geometric Constraints",
     "description": "A data-free generative model that learns 3D LEGO-compatible brick shapes using only geometric constraints—no meshes or point clouds. Trains a single implicit neural decoder (WIRE) with constraint-based losses and a violation buffer so that sampling latent codes yields valid, diverse bricks. Explores whether continuous design manifolds and interpretable latent structure can emerge from constraint-only optimization instead of per-instance solving.",
     "tags": ["Geometry-Informed Neural Networks", "Generative Models", "3D", "SDF", "Constraint-Based Learning", "PyTorch", "LEGO", "No Training Data", "Implicit Decoder"],
@@ -31,7 +50,7 @@
     "title": "Infinite Game – Dynamic Game Compiler from Natural Language",
     "description": "Type what you want to learn and get a tailored educational game in seconds. Change your game from mechanics to genre in real time. Built in Godot 4 with a user model for difficulty and a knowledge graph of your progress, so learning stays personal and conversational.",
     "tags": ["Godot 4", "AI", "Game", "World Model", "Education", "Game-Based Learning", "GDScript", "Natural Language", "Personalization"],
-    "repoUrl": null,
+    "repoUrl": "https://github.com/Dalu1234/nex-hacks",
     "liveUrl": null,
     "image": "assets/images/infiniteGame.png",
     "featured": true
@@ -40,7 +59,7 @@
   "title": "RikRok – Tinder for Research Papers",
   "description": "An AI-powered research discovery app that helps users find, swipe, and save AI papers from arXiv. Built with React Native and integrated with Anthropic's Claude for paper summarization and recommendation. Designed to make exploring new research engaging, intuitive, and conversational.",
   "tags": ["🏆 1st Place · UMD × Anthropic", "React Native", "Anthropic", "Claude", "AI", "arXiv", "Mobile", "JavaScript"],
-  "repoUrl": "https://github.com/dalu1234/rikrok",
+  "repoUrl": "https://github.com/Dalu1234/RikRok",
   "liveUrl": null,
   "image": "assets/images/1110.gif"
 },
@@ -48,7 +67,7 @@
   "title": "Quest – AI-Generated Daily Campus Challenges",
   "description": "Quest creates short, personalized daily challenges that help students explore campus, build habits, and boost well-being. Powered by AI-generated micro-missions, the app turns each day into a small adventure with intentional, growth-oriented actions.",
   "tags": ["AI", "Campus Life", "Well-being", "React Native", "Student Engagement", "Daily Challenges"],
-  "repoUrl": null,
+  "repoUrl": "https://github.com/Dalu1234/Quests",
   "liveUrl": null,
   "image": "assets/images/buest.gif"
 },
