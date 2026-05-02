@@ -375,12 +375,20 @@ a.inline-link:hover {
 }
 .chip[aria-pressed="true"] .count { color: var(--paper); opacity: 0.7; }
 
-/* Project grid (editorial) */
+/* Project grid — pinboard of posters
+   Pinboard panel holds cards as tilted posters with a thumbtack at the top.
+   Featured cards span 2 columns so they read as larger posters. */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 32px;
-  padding-bottom: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-auto-flow: dense;
+  align-items: start;
+  gap: 36px 28px;
+  padding: 48px 32px 40px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 8px rgba(31, 30, 29, 0.04);
 }
 .card {
   position: relative;
@@ -388,30 +396,64 @@ a.inline-link:hover {
   flex-direction: column;
   background: var(--card);
   border: 1px solid var(--rule);
-  border-radius: 10px;
+  border-radius: 3px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 12px 22px -14px rgba(31, 30, 29, 0.45),
+    0 4px 8px -4px rgba(31, 30, 29, 0.18);
+  transform: rotate(-0.6deg);
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+  isolation: isolate;
 }
+/* Slightly varied tilt so posters look hand-pinned, not stamped */
+.card:nth-of-type(2n)   { transform: rotate(0.8deg); }
+.card:nth-of-type(3n)   { transform: rotate(-1deg); }
+.card:nth-of-type(4n)   { transform: rotate(0.4deg); }
+.card:nth-of-type(5n+1) { transform: rotate(-0.3deg); }
+.card.featured          { transform: rotate(-0.4deg); }
+.card.featured:nth-of-type(2n) { transform: rotate(0.5deg); }
 .card:hover {
-  border-color: rgba(31, 30, 29, 0.2);
-  transform: translateY(-2px);
+  transform: rotate(0deg) translateY(-3px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 22px 36px -18px rgba(31, 30, 29, 0.55),
+    0 10px 16px -8px rgba(31, 30, 29, 0.22);
   cursor: pointer;
 }
+/* Pushpin — sits inside the card so overflow:hidden keeps the corners crisp */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 30%, #f4ad94 0%, #cc785c 40%, #9e4329 75%, #5e2814 100%);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(0, 0, 0, 0.18),
+    0 4px 6px -3px rgba(31, 30, 29, 0.5);
+  transform: translateX(-50%);
+  z-index: 3;
+}
+/* Default size: 1 col poster; featured posters span 2 columns and use a wider image */
 .card.featured { grid-column: span 1; }
-@media (min-width: 900px) {
-  .card.featured {
-    grid-column: span 2;
-  }
-  .card.featured .card-image { aspect-ratio: 21 / 10; }
+@media (min-width: 720px) {
+  .card.featured { grid-column: span 2; }
 }
 .card-image {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background: var(--paper-deep);
+  border-bottom: 1px solid var(--rule);
 }
+.card.featured .card-image { aspect-ratio: 16 / 9; }
 .thumb {
   display: block;
   width: 100%;
@@ -424,9 +466,14 @@ a.inline-link:hover {
 .card-body {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 28px;
+  gap: 10px;
+  padding: 16px 18px 18px;
   flex-grow: 1;
+  min-height: 0;
+}
+.card.featured .card-body {
+  gap: 14px;
+  padding: 24px 26px 26px;
 }
 .tag-row {
   display: flex;
@@ -460,33 +507,44 @@ a.inline-link:hover {
 }
 .card-title {
   font-family: var(--font-serif);
-  font-size: var(--t-h3);
+  font-size: 1.0625rem;
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.25;
   letter-spacing: -0.01em;
   color: var(--ink);
   margin: 0;
 }
+.card.featured .card-title {
+  font-size: var(--t-h3);
+  line-height: 1.3;
+}
 .card-desc {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: var(--t-body);
-  line-height: 1.55;
+  font-size: var(--t-meta);
+  line-height: 1.5;
   color: var(--ink-soft);
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  flex-grow: 1;
+}
+.card.featured .card-desc {
+  font-size: var(--t-body);
+  line-height: 1.55;
+  -webkit-line-clamp: 4;
 }
 .card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-top: 8px;
-  padding-top: 18px;
+  margin-top: auto;
+  padding-top: 12px;
   border-top: 1px solid var(--rule);
+}
+.card.featured .card-footer {
+  padding-top: 18px;
 }
 .card-meta {
   font-family: var(--font-sans);
@@ -865,9 +923,22 @@ main {
   }
   .grid {
     grid-template-columns: 1fr;
-    gap: 24px;
+    grid-auto-rows: auto;
+    gap: 28px;
+    padding: 32px 16px 28px;
   }
-  .card.featured { grid-column: span 1; }
+  .card,
+  .card.featured,
+  .card:nth-of-type(2n),
+  .card:nth-of-type(3n),
+  .card:nth-of-type(4n),
+  .card:nth-of-type(5n+1) {
+    transform: none;
+    grid-column: span 1;
+    grid-row: auto;
+  }
+  .card-image,
+  .card.featured .card-image { aspect-ratio: 16 / 10; }
 }
 
 /* Current Work — field notes */
@@ -1061,7 +1132,7 @@ main {
 /* Responsive (legacy/page-grid) */
 @media (min-width: 641px) and (max-width: 1024px) {
   .grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
 

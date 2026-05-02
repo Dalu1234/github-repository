@@ -164,7 +164,17 @@
       const body = document.createElement("div");
       body.className = "card-body";
 
-      // Tag pills (max 3 + static "+N")
+      const h3 = document.createElement("h3");
+      h3.className = "card-title";
+      h3.textContent = p.title || "Untitled Project";
+      body.appendChild(h3);
+
+      const desc = document.createElement("p");
+      desc.className = "card-desc";
+      desc.textContent = p.description || "";
+      body.appendChild(desc);
+
+      // Tag pills (max 3 + static "+N") — placed after description
       if (Array.isArray(p.tags) && p.tags.length) {
         const tags = document.createElement("div");
         tags.className = "tag-row";
@@ -185,16 +195,6 @@
         }
         body.appendChild(tags);
       }
-
-      const h3 = document.createElement("h3");
-      h3.className = "card-title";
-      h3.textContent = p.title || "Untitled Project";
-      body.appendChild(h3);
-
-      const desc = document.createElement("p");
-      desc.className = "card-desc";
-      desc.textContent = p.description || "";
-      body.appendChild(desc);
 
       // Footer: meta on left, "Read more →" on right
       const footer = document.createElement("div");
