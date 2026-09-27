@@ -4,7 +4,8 @@
     "description": "A state-level benchmark for physics-integrated Gaussian systems. GaussianBench uses frozen scenes, simulator-independent scorers, and PASS/FAIL/NA/INVALID verdicts to reveal whether errors come from conservation, continuum response, material coupling, kinematic realization, Gaussian-state transport, rendering, or an invalid test regime.",
     "tags": ["Gaussian Splatting", "Physics", "Benchmark", "Computer Graphics", "Research"],
     "repoUrl": "https://github.com/Dalu1234/GaussianBench",
-    "liveUrl": null,
+    "liveUrl": "https://gaussianbench.github.io/",
+    "liveUrlLabel": "Project website",
     "image": "assets/images/gaussianbench.png",
     "featured": true
   },
