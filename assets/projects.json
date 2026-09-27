@@ -6,7 +6,7 @@
     "repoUrl": "https://github.com/Dalu1234/GaussianBench",
     "liveUrl": "https://gaussianbench.github.io/",
     "liveUrlLabel": "Project website",
-    "image": "assets/images/gaussianbench.png",
+    "image": "assets/images/gaussianbench-abstract.png",
     "featured": true
   },
   {
@@ -30,7 +30,7 @@
   },
   {
     "title": "miniWorld – Continuous Design Manifolds from Geometric Constraints",
-    "description": "A data-free generative model that learns 3D LEGO-compatible brick shapes using only geometric constraints—no meshes or point clouds. Trains a single implicit neural decoder (WIRE) with constraint-based losses and a violation buffer so that sampling latent codes yields valid, diverse bricks. Explores whether continuous design manifolds and interpretable latent structure can emerge from constraint-only optimization instead of per-instance solving.",
+    "description": "A data-free generative model that learns 3D LEGO-compatible brick shapes using only geometric constraints, no meshes or point clouds. Trains a single implicit neural decoder (WIRE) with constraint-based losses and a violation buffer so that sampling latent codes yields valid, diverse bricks. Explores whether continuous design manifolds and interpretable latent structure can emerge from constraint-only optimization instead of per-instance solving.",
     "tags": ["Geometry-Informed Neural Networks", "Generative Models", "3D", "SDF", "Constraint-Based Learning", "PyTorch", "LEGO", "No Training Data", "Implicit Decoder"],
     "repoUrl": "https://github.com/Dalu1234/GINNs-Geometry-informed-Neural-Networks",
     "liveUrl": null,
