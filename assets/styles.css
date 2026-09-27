@@ -1,4 +1,4 @@
-/* --- Anthropic-Style Editorial — Paper Palette --- */
+/* --- Anthropic-Style Editorial - Paper Palette --- */
 
 /* Color & type tokens */
 :root {
@@ -13,7 +13,7 @@
   --ink-soft:     #3D3D3A;
   --ink-muted:    #6B6A65;
 
-  /* Accent — used sparingly. --crail is the warm-clay accent for
+  /* Accent - used sparingly. --crail is the warm-clay accent for
      non-text states (focus rings, progress dot, button :active fill).
      --crail-deep is intentionally darker than design.md's spec'd
      #B8553B so it can carry text and primary-button hover labels at
@@ -239,7 +239,7 @@ a.inline-link:hover {
   border-top: 1px solid var(--rule);
   margin: clamp(48px, 7vw, 96px) 0;
 }
-/* First rule after top-of-page headline: keep tight — no UA hr height surprises */
+/* First rule after top-of-page headline: keep tight - no UA hr height surprises */
 .hero + .rule,
 .page-intro + .rule {
   margin: 16px 0 44px;
@@ -375,7 +375,7 @@ a.inline-link:hover {
 }
 .chip[aria-pressed="true"] .count { color: var(--paper); opacity: 0.7; }
 
-/* Project grid — pinboard of posters
+/* Project grid - pinboard of posters
    Pinboard panel holds cards as tilted posters with a thumbtack at the top.
    Featured cards span 2 columns so they read as larger posters. */
 .grid {
@@ -423,7 +423,7 @@ a.inline-link:hover {
     0 10px 16px -8px rgba(31, 30, 29, 0.22);
   cursor: pointer;
 }
-/* Pushpin — sits inside the card so overflow:hidden keeps the corners crisp */
+/* Pushpin - sits inside the card so overflow:hidden keeps the corners crisp */
 .card::before {
   content: "";
   position: absolute;
@@ -878,7 +878,7 @@ a.inline-link:hover {
 }
 .contact-link:hover { color: var(--crail-deep); }
 
-/* Page-load fade — single, restrained */
+/* Page-load fade - single, restrained */
 @keyframes pageFade {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -941,7 +941,7 @@ main {
   .card.featured .card-image { aspect-ratio: 16 / 10; }
 }
 
-/* Current Work — field notes */
+/* Current Work - field notes */
 .field-note {
   display: block;
   max-width: 80ch;
@@ -972,14 +972,14 @@ main {
 }
 .field-list li:last-child { border-bottom: 0; }
 .field-list li::before {
-  content: "—";
+  content: "-";
   position: absolute;
   left: 0;
   color: var(--ink-muted);
 }
 .field-tags { margin-top: 8px; }
 
-/* Progress steps (calm) — one left-to-right row; scroll horizontally if viewport is narrow */
+/* Progress steps (calm) - one left-to-right row; scroll horizontally if viewport is narrow */
 .progress {
   list-style: none;
   margin: 32px 0;

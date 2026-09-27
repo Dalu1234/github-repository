@@ -1,4 +1,4 @@
-# Chukwudalu Dumebi-Kachikwu — Portfolio (Vanilla HTML/CSS/JS)
+# Chukwudalu Dumebi-Kachikwu | Portfolio (Vanilla HTML/CSS/JS)
 
 A fast, accessible, dark-mode-first portfolio that showcases GitHub projects without any API keys. Includes tag filters, search, optional GitHub stars/forks, and a simple “Project Details” modal.
 

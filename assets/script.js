@@ -174,7 +174,7 @@
       desc.textContent = p.description || "";
       body.appendChild(desc);
 
-      // Tag pills (max 3 + static "+N") — placed after description
+      // Tag pills (max 3 + static "+N"), placed after description
       if (Array.isArray(p.tags) && p.tags.length) {
         const tags = document.createElement("div");
         tags.className = "tag-row";

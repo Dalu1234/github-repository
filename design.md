@@ -1,8 +1,8 @@
-# Portfolio Redesign Spec — Anthropic-Style Editorial
+# Portfolio Redesign Spec: Anthropic-Style Editorial
 
 This document is the source of truth for redesigning this portfolio in the visual language of [anthropic.com](https://www.anthropic.com). Treat it as a brief, not a script: hold the line on the tokens and principles, but use judgment on layout details.
 
-The current site is a dark "soft-neon cyberpunk" theme. The target is the opposite: a warm, paper-feeling, editorial site that reads like a thoughtful publication — restrained, typographic, confident.
+The current site is a dark "soft-neon cyberpunk" theme. The target is the opposite: a warm, paper-feeling, editorial site that reads like a thoughtful publication: restrained, typographic, confident.
 
 ---
 
@@ -20,7 +20,7 @@ assets/projects.json# Project data consumed by script.js
 assets/images/...   # Project thumbnails + me.png
 ```
 
-Keep the file structure, page set, and data contract (`projects.json`) the same. The redesign is a CSS rewrite plus targeted markup tweaks — not a framework migration. Do not introduce React, a build step, Tailwind, or new dependencies. Plain HTML + CSS + a single `script.js`.
+Keep the file structure, page set, and data contract (`projects.json`) the same. The redesign is a CSS rewrite plus targeted markup tweaks, not a framework migration. Do not introduce React, a build step, Tailwind, or new dependencies. Plain HTML + CSS + a single `script.js`.
 
 ---
 
@@ -39,12 +39,12 @@ If a change makes the site louder, it's wrong.
 
 ## 3. Color tokens
 
-Replace the existing `:root` palette with a warm paper palette inspired by Anthropic's "Book Cloth / Slate / Crail" system. Names are descriptive — keep them.
+Replace the existing `:root` palette with a warm paper palette inspired by Anthropic's "Book Cloth / Slate / Crail" system. Names are descriptive; keep them.
 
 ```css
 :root {
   /* Surfaces */
-  --paper:        #F5F4EE; /* page background — warm cream */
+  --paper:        #F5F4EE; /* page background: warm cream */
   --paper-deep:   #EFEBE0; /* alternating section / footer */
   --card:         #FAF9F4; /* card surface, slightly lifted */
   --rule:         #1F1E1D1A; /* hairline borders, ~10% slate */
@@ -54,8 +54,8 @@ Replace the existing `:root` palette with a warm paper palette inspired by Anthr
   --ink-soft:     #3D3D3A; /* secondary text */
   --ink-muted:    #6B6A65; /* tertiary, captions, meta */
 
-  /* Accent — used sparingly */
-  --crail:        #CC785C; /* warm clay/coral — links on hover, key CTAs */
+  /* Accent: used sparingly */
+  --crail:        #CC785C; /* warm clay/coral: links on hover, key CTAs */
   --crail-deep:   #B8553B; /* pressed / active */
   --kraft:        #BFA98A; /* secondary muted accent for tags */
 
@@ -96,7 +96,7 @@ Fraunces is the practical stand-in for Anthropic's Tiempos/Styrene-Serif feel: w
 | `--t-meta`     | Meta, captions         | `0.875rem` Inter 500, color `--ink-muted` |
 | `--t-mono`     | Code, kbd              | `0.875rem` JetBrains Mono 400 |
 
-Body copy uses Inter. **All headings (h1–h3) use Fraunces.** Eyebrows above sections use uppercase Inter — they stand in for Anthropic's small-caps label style. Body should have `font-feature-settings: "ss01", "cv11";` enabled on Inter for the more humanist forms.
+Body copy uses Inter. **All headings (h1–h3) use Fraunces.** Eyebrows above sections use uppercase Inter; they stand in for Anthropic's small-caps label style. Body should have `font-feature-settings: "ss01", "cv11";` enabled on Inter for the more humanist forms.
 
 ---
 
@@ -107,7 +107,7 @@ Body copy uses Inter. **All headings (h1–h3) use Fraunces.** Eyebrows above se
 - Section vertical padding: `clamp(64px, 9vw, 128px)`.
 - Grid gutter: `32px` desktop, `20px` mobile.
 - 12-column implicit grid is fine; use CSS grid with `repeat(12, 1fr)` only where asymmetric layouts help (about page, current work).
-- Hairline rules (`1px solid var(--rule)`) separate major sections — these are part of the editorial feel. No card borders should glow or animate.
+- Hairline rules (`1px solid var(--rule)`) separate major sections; these are part of the editorial feel. No card borders should glow or animate.
 
 ---
 
@@ -120,16 +120,16 @@ Body copy uses Inter. **All headings (h1–h3) use Fraunces.** Eyebrows above se
 - Brand: drop the two-line "name + tagline" treatment. Use just the name in Fraunces 500 at ~20px. Tagline moves to the homepage hero.
 - Nav links: Inter 500 at 15px, color `--ink-soft`. On hover: color flips to `--ink`, with a 1px underline that animates in from the left over 180ms. Active page: solid underline.
 - Right side: a single `Get in touch` link styled as the primary button (see 6.5). No theme toggle.
-- Sticky on scroll, but **no shrink animation** — height stays constant.
+- Sticky on scroll, but **no shrink animation**; height stays constant.
 
 ### 6.2 Hero (index.html)
 
 - Replace the current "Projects" h1 with a confident editorial hero:
-  - Eyebrow: `PORTFOLIO — 2026`
+  - Eyebrow: `PORTFOLIO - 2026`
   - Display headline: a single declarative sentence about the work, e.g. *"Building AI systems that explain themselves."* Use the `--t-display` token. Max-width ~18ch so it wraps into 2–3 lines.
   - Lead paragraph below at `--t-lead`, max-width ~58ch, color `--ink-soft`.
   - Two CTAs side-by-side: primary (`View projects` → scrolls to grid) and secondary (`Read about me` → about.html).
-- Hero spans the full container width with generous top/bottom padding (`128px` desktop). No background image, no gradient — just paper.
+- Hero spans the full container width with generous top/bottom padding (`128px` desktop). No background image, no gradient, only paper.
 
 ### 6.3 Project cards (the grid on index.html)
 
@@ -143,12 +143,12 @@ Anthropic uses calm, almost archival cards. Aim for that.
   - 2–3 line description in `--t-body`, color `--ink-soft`. Clamp to 3 lines (`-webkit-line-clamp: 3`).
   - Footer row: meta (year / role) on the left in `--t-meta`; an arrow-link on the right (`Read more →`) that slides the arrow `4px` right on hover.
 - Grid: `repeat(auto-fill, minmax(340px, 1fr))`, `gap: 32px`.
-- The "featured" first card may span 2 columns at desktop with a larger image — pick the most substantive project for this slot.
+- The "featured" first card may span 2 columns at desktop with a larger image. Pick the most substantive project for this slot.
 
 ### 6.4 Search & filter controls
 
 - Search input: full-width on its own row, `1px` bottom border only (no box), Fraunces-adjacent placeholder in `--ink-muted`. Icon to the left in `--ink-muted`. On focus: bottom border thickens to 2px and shifts to `--crail`.
-- Filter chips: same style as card tag pills. Active chip fills with `--ink` and uses `--paper` text. Avoid using `--crail` as a fill — keep it for links and primary CTAs.
+- Filter chips: same style as card tag pills. Active chip fills with `--ink` and uses `--paper` text. Avoid using `--crail` as a fill; keep it for links and primary CTAs.
 
 ### 6.5 Buttons
 
@@ -160,7 +160,7 @@ Two variants only.
 
 ### 6.6 Modal (project detail)
 
-- Backdrop: `rgba(25, 25, 25, 0.4)` — warm, not black.
+- Backdrop: `rgba(25, 25, 25, 0.4)`: warm, not black.
 - Card: `--card` background, max-width 720px, radius `12px`, padding `40px`. Hairline border. Title in Fraunces.
 - Close button: text `Close` with an `×` glyph, top-right, styled as a secondary button at smaller size.
 - Open/close motion: 180ms ease-out on opacity + 8px translate. No scale.
@@ -172,7 +172,7 @@ Two variants only.
 - Three columns at desktop, stacks at mobile:
   1. Name + one-line bio in `--ink-soft`.
   2. Nav (mirrors header).
-  3. Social links — text only, underlined on hover. No icons.
+  3. Social links: text only, underlined on hover. No icons.
 - Bottom row: copyright in `--t-meta`, plus a small "Built by hand in 2026" right-aligned.
 
 ---
@@ -187,7 +187,7 @@ Two-column editorial layout at desktop (`grid-template-columns: 5fr 7fr`, gap `6
 
 ### current.html
 This is where the editorial style shines. Treat each ongoing project as a "field note":
-- Eyebrow with date range (`APR 2026 — PRESENT`).
+- Eyebrow with date range (`APR 2026 - PRESENT`).
 - h2 title.
 - Lead paragraph.
 - Optional inline image, full container width, with a small italic caption.
@@ -198,7 +198,7 @@ This is where the editorial style shines. Treat each ongoing project as a "field
 Resume-style timeline. Each role is a row in a 2-column layout: left column (3fr) holds the date range as `--t-meta`; right column (9fr) holds the role, company, and 2–4 bullet accomplishments in body type. Hairline between rows. No icons, no logos.
 
 ### contact.html
-Simple, generous. Centered single column, max-width 540px. Hero h1 (`Get in touch.`), lead paragraph, then a list of contact methods rendered as large text links (Fraunces 500 at h3 size) — each on its own line, with a small `--t-meta` label above (`EMAIL`, `LINKEDIN`, `GITHUB`, `X`). No form in v1.
+Simple, generous. Centered single column, max-width 540px. Hero h1 (`Get in touch.`), lead paragraph, then a list of contact methods rendered as large text links (Fraunces 500 at h3 size), each on its own line, with a small `--t-meta` label above (`EMAIL`, `LINKEDIN`, `GITHUB`, `X`). No form in v1.
 
 ---
 
@@ -208,16 +208,16 @@ Keep a single shared transition token: `--ease: cubic-bezier(0.2, 0.6, 0.2, 1);`
 
 - All hover transitions use these.
 - Page-load: a single 320ms opacity fade on `<main>` is fine. Nothing else animates on load.
-- Respect `prefers-reduced-motion: reduce` — disable all transitions and translates.
+- Respect `prefers-reduced-motion: reduce`; disable all transitions and translates.
 
 ---
 
 ## 9. Accessibility
 
-- Maintain the existing skip-link pattern (add one if missing) — `Skip to content` link, visually hidden until focused, lands on `#main`.
+- Maintain the existing skip-link pattern (add one if missing): `Skip to content` link, visually hidden until focused, lands on `#main`.
 - All headings in document order, no skipped levels.
 - Focus rings: `outline: 2px solid var(--crail); outline-offset: 3px;` on all interactive elements. Do not remove default outlines without replacing them.
-- Tag pills, filter chips, and the close button must have `aria-pressed` / `aria-label` as appropriate (most of this is already in the existing markup — preserve it).
+- Tag pills, filter chips, and the close button must have `aria-pressed` / `aria-label` as appropriate (most of this is already in the existing markup; preserve it).
 - Body text contrast ratio against `--paper` must be ≥ 7:1 (passes AAA at the chosen `--ink`).
 
 ---
@@ -231,7 +231,7 @@ Required edits:
 2. Project rendering: update the card template string to match the new card structure in 6.3 (eyebrow tags row, image-first, arrow link in footer).
 3. Filter chip rendering: update class names / structure to match 6.4.
 4. Modal: update inner template to the new typography and structure.
-5. Keep `projects.json` as the single source of truth — do not hardcode project data into HTML.
+5. Keep `projects.json` as the single source of truth; do not hardcode project data into HTML.
 
 Do not introduce a framework, bundler, or TypeScript. Plain ES module-free script, same as today.
 
@@ -239,18 +239,18 @@ Do not introduce a framework, bundler, or TypeScript. Plain ES module-free scrip
 
 ## 11. Implementation order
 
-Suggested sequence — each step should leave the site in a working state.
+Suggested sequence: each step should leave the site in a working state.
 
-1. **Tokens & typography.** Replace `:root`, swap font imports, set base body styles. Site will look unstyled in places — that's expected.
+1. **Tokens & typography.** Replace `:root`, swap font imports, set base body styles. Site will look unstyled in places; that's expected.
 2. **Header & footer.** Get the chrome right first; it sets the tone.
 3. **Index hero & buttons.** Establish the hero pattern; reuse on other pages.
 4. **Project cards & grid.** Most visible component; iterate until it feels editorial.
 5. **Search / filter controls.**
 6. **Modal.**
-7. **About, Current, Experience, Contact** — apply the established patterns.
+7. **About, Current, Experience, Contact**: apply the established patterns.
 8. **Pass for motion, focus states, reduced-motion.**
-9. **Accessibility audit** — keyboard tab order, contrast, screen-reader labels.
-10. **Remove dead code** — old theme toggle, old CSS variables, unused classes.
+9. **Accessibility audit**: keyboard tab order, contrast, screen-reader labels.
+10. **Remove dead code**: old theme toggle, old CSS variables, unused classes.
 
 ---
 
